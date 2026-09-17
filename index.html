@@ -45,7 +45,30 @@
     { "@type": "CollegeOrUniversity", "name": "Cornell University" }
   ],
   "award": ["Pac-12 Coach of the Year (2023, 2026)", "NCAA All-American (2005)", "UTC Athletics Hall of Fame"],
-  "homeLocation": { "@type": "Place", "name": "San Luis Obispo, California" }
+  "homeLocation": { "@type": "Place", "name": "San Luis Obispo, California" },
+  "knowsAbout": ["Wrestling", "Wrestling coaching", "Team culture", "College wrestling recruiting", "Leadership"],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "A Day on Your Mat",
+        "serviceType": "Wrestling camp and clinic",
+        "description": "A Division I practice brought to your room: technique, live goes and a culture talk, built around your athletes. One day, or two days for a full camp.",
+        "areaServed": { "@type": "Country", "name": "United States" }
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Speaking Engagements",
+        "serviceType": "Keynote speaking",
+        "description": "Keynotes, banquets and coaches' sessions on culture, leadership and building sustainable programs.",
+        "areaServed": { "@type": "Country", "name": "United States" }
+      }
+    }
+  ]
 }
 </script>
 <style>
@@ -803,10 +826,16 @@ form .btn[disabled]{opacity:.75;cursor:wait}
       <a class="btn btn-primary" href="#book">Book a Camp or Clinic</a>
     </div>
 
-    <!-- SAMPLE TESTIMONIALS: placeholder quotes written to show what a strong testimonial looks like,
+    <!-- TESTIMONIALS: pulled 2026-09-17 before the site goes into Google, because the three quotes
+         were placeholders I wrote, not real people. When Coach has real, approved quotes, restore the
+         block below, swap each quote, and add the attribution under it, e.g.
+         <figcaption><strong>Name</strong><span>Head Wrestling Coach, School</span></figcaption>
+         The .voices / .voice CSS is still in the stylesheet, so this drops back in as is.
+
+    <!- - SAMPLE TESTIMONIALS: placeholder quotes written to show what a strong testimonial looks like,
          NOT from real people. Coach asked (2026-09-16) to hide the [Name] attribution lines for now.
          Before launch, replace each quote with a real, approved one and add back its attribution below it, e.g.
-         <figcaption><strong>Name</strong><span>Head Wrestling Coach, School</span></figcaption> -->
+         <figcaption><strong>Name</strong><span>Head Wrestling Coach, School</span></figcaption> - ->
     <div class="voices">
       <p class="eyebrow" data-reveal>In Their Words</p>
       <h3 data-reveal>What Hosts, Coaches &amp; Parents Say</h3>
@@ -825,6 +854,7 @@ form .btn[disabled]{opacity:.75;cursor:wait}
         </figure>
       </div>
     </div>
+    -->
 
     <div class="process" data-reveal>
       <p class="process-title">How Booking Works</p>

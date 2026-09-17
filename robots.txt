@@ -1,0 +1,9 @@
+# jonsioredas.com
+# Search engines are welcome. Note: while index.html still carries the
+# noindex tag, Google will crawl the page and then leave it out of results.
+# Removing that tag is the switch that puts the site into search.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://jonsioredas.com/sitemap.xml
