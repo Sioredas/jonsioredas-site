@@ -67,6 +67,7 @@ img{max-width:100%;display:block}
 a{color:inherit}
 ul,ol{list-style:none}
 h1,h2,h3,h4{font-weight:400}
+.nw{white-space:nowrap}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 .skip{position:absolute;left:-9999px;top:12px;z-index:100;background:var(--gold);color:var(--ink-deep);padding:10px 16px;font-weight:700;text-decoration:none}
 .skip:focus{left:12px}
@@ -250,6 +251,17 @@ section{padding:clamp(76px,10vw,124px) 0;position:relative}
 .card p:not(.card-kicker){flex:1;color:var(--muted);font-size:.99rem}
 .card-link{font-weight:700;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
 .card-link::after{content:' →';color:var(--gold)}
+.voices{margin-top:clamp(56px,7vw,88px)}
+.voices h3{margin:12px 0 28px;font-family:var(--display);font-size:clamp(2rem,3.4vw,2.8rem);line-height:.95;letter-spacing:.015em;color:var(--ink)}
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.voice{position:relative;display:flex;flex-direction:column;padding:34px 30px 28px;background:var(--paper);border:1px solid var(--sand);border-top:3px solid var(--gold)}
+.voice::before{content:'\201C';position:absolute;top:8px;right:22px;font-family:Georgia,'Times New Roman',serif;font-size:6rem;line-height:1;color:rgba(198,161,75,.3)}
+.voice-kicker{margin-bottom:14px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text)}
+.voice blockquote{flex:1}
+.voice blockquote p{font-size:1.08rem;line-height:1.55;color:var(--text)}
+.voice figcaption{display:flex;flex-direction:column;gap:2px;margin-top:22px;padding-top:16px;border-top:1px solid var(--sand)}
+.voice figcaption strong{font-family:var(--display);font-weight:400;font-size:1.35rem;letter-spacing:.05em;line-height:1.1;color:var(--ink)}
+.voice figcaption span{font-size:.9rem;color:var(--muted)}
 .process{display:grid;grid-template-columns:1fr auto;align-items:center;gap:26px 40px;margin-top:clamp(48px,6vw,72px);padding:34px 40px 38px;background:var(--ink);color:var(--mist)}
 .process-title{grid-column:1;grid-row:1;font-family:var(--display);font-size:2.1rem;line-height:1;letter-spacing:.03em;color:#fff}
 .process .btn{grid-column:2;grid-row:1}
@@ -345,6 +357,7 @@ form .btn{width:100%;margin-top:6px;padding:17px 28px 15px;font-size:1.3rem}
   .philo-photo{aspect-ratio:4/3}
   .philo-photo::after{background:linear-gradient(180deg,rgba(14,46,34,0) 55%,rgba(14,46,34,.9) 100%)}
   .offer-grid{grid-template-columns:1fr;max-width:600px}
+  .voice-grid{grid-template-columns:1fr;max-width:600px}
   .process{grid-template-columns:1fr;padding:30px 26px 32px}
   .process .btn{grid-column:1;grid-row:3;justify-self:start}
   .steps{grid-template-columns:1fr}
@@ -387,7 +400,7 @@ form .btn{width:100%;margin-top:6px;padding:17px 28px 15px;font-size:1.3rem}
   .hero *,.scoreboard *,.record *,.philosophy *,.about *,.site-footer *,h2,h3{color:#000!important}
   .philo-grid,.about-grid,.glance-grid,.record-head,.book-grid{display:block}
   .about-photo,.glance-side{position:static}
-  .timeline,.season,.pillar,.panel,.card{break-inside:avoid}
+  .timeline,.season,.pillar,.panel,.card,.voice{break-inside:avoid}
 }
 </style>
 </head>
@@ -546,7 +559,7 @@ form .btn{width:100%;margin-top:6px;padding:17px 28px 15px;font-size:1.3rem}
         <h3>In the Classroom</h3>
         <ul>
           <li><strong>Program-record six</strong> NWCA Scholar All-Americans (2026)</li>
-          <li>Highest team GPA in program history</li>
+          <li>Highest team GPA in program history <span class="nw">(2025-26)</span></li>
           <li>Half the roster at a 3.5 GPA or better (winter 2026)</li>
           <li>NCAA APR top 10 nationally (2017-19) and a perfect APR (2023)</li>
         </ul>
@@ -609,7 +622,7 @@ form .btn{width:100%;margin-top:6px;padding:17px 28px 15px;font-size:1.3rem}
       <p class="eyebrow">In the Classroom</p>
       <span class="big-num">3.5+</span>
       <p>GPA or better for half the roster in winter 2026.</p>
-      <p class="fine">The highest team GPA in program history, and a program-record six NWCA Scholar All-Americans.</p>
+      <p class="fine">Plus the highest team GPA in program history in 2025-26 and a program-record six NWCA Scholar All-Americans.</p>
     </div>
     <div class="panel panel-story">
       <p class="eyebrow">The Template</p>
@@ -670,6 +683,30 @@ form .btn{width:100%;margin-top:6px;padding:17px 28px 15px;font-size:1.3rem}
         </div>
       </a>
 
+    </div>
+
+    <!-- SAMPLE TESTIMONIALS: placeholders written to show what a strong testimonial looks like.
+         Before launch, replace each quote and the bracketed name and program with a real, approved quote. -->
+    <div class="voices">
+      <p class="eyebrow">In Their Words</p>
+      <h3>What Hosts, Coaches &amp; Parents Say</h3>
+      <div class="voice-grid">
+        <figure class="voice">
+          <p class="voice-kicker">Clinic Host</p>
+          <blockquote><p>We have brought in a lot of clinicians. Jon is the first one our kids still quote. He ran our room like a Division I practice, knew every wrestler's name by lunch and left my staff with a system we still use every week.</p></blockquote>
+          <figcaption><strong>[Name]</strong><span>Head Wrestling Coach, [High School]</span></figcaption>
+        </figure>
+        <figure class="voice">
+          <p class="voice-kicker">Camp Parent</p>
+          <blockquote><p>Our son went to Mustang Wrestling Camp hoping to get better on his feet. He came home talking about attitude and effort, setting his own alarm for morning runs and counting the days until next summer.</p></blockquote>
+          <figcaption><strong>[Name]</strong><span>Parent of a Mustang Wrestling Camp Wrestler</span></figcaption>
+        </figure>
+        <figure class="voice">
+          <p class="voice-kicker">Keynote Host</p>
+          <blockquote><p>Jon closed our coaches' banquet with no notes and no filler, and the room was locked in the whole time. Our coaches used what he taught the very next morning. We asked him back before he reached the parking lot.</p></blockquote>
+          <figcaption><strong>[Name]</strong><span>Athletic Director, [School]</span></figcaption>
+        </figure>
+      </div>
     </div>
 
     <div class="process">
