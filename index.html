@@ -3,15 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jon Sioredas | NCAA Division I Head Wrestling Coach — Camps, Clinics, Speaking</title>
-<meta name="description" content="Bring NCAA Division I Head Wrestling Coach Jon Sioredas to your school or club. Camps, clinics, speaking engagements, and coach consulting from the leader of one of the most decorated seasons in Cal Poly Wrestling history.">
-<meta property="og:title" content="Jon Sioredas | Camps, Clinics, Speaking">
-<meta property="og:description" content="Bring a Division I head coach to your room. Camps, clinics, and speaking engagements with Jon Sioredas.">
-<meta property="og:image" content="images/hero-coaching.jpg">
+<title>Jon Sioredas | Cal Poly Head Wrestling Coach · Camps, Clinics &amp; Speaking</title>
+<meta name="description" content="Two-time Pac-12 Coach of the Year and President of the National Wrestling Coaches Association. Bring Cal Poly head wrestling coach Jon Sioredas to your program for clinics, camps and speaking engagements.">
+<meta name="theme-color" content="#092018">
+<!-- TODO: once the domain is live, make og:image an absolute URL (e.g. https://jonsioredas.com/images/web/og-card.jpg) -->
+<meta property="og:title" content="Jon Sioredas | Head Wrestling Coach, Cal Poly">
+<meta property="og:description" content="Two-time Pac-12 Coach of the Year. President, National Wrestling Coaches Association. Camps, clinics and speaking engagements.">
+<meta property="og:image" content="images/web/og-card.jpg">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23092018'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Impact,Arial Black,sans-serif' font-size='32' fill='%23C6A14B'%3EJS%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="images/web/hero-1680.jpg" media="(min-width: 901px)">
+<link rel="preload" as="image" href="images/web/hero-1100.jpg" media="(max-width: 900px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jon Sioredas",
+  "jobTitle": "Head Wrestling Coach",
+  "worksFor": { "@type": "CollegeOrUniversity", "name": "California Polytechnic State University, San Luis Obispo" },
+  "memberOf": { "@type": "Organization", "name": "National Wrestling Coaches Association" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "University of Tennessee at Chattanooga" },
+    { "@type": "CollegeOrUniversity", "name": "Nova Southeastern University" },
+    { "@type": "CollegeOrUniversity", "name": "Cornell University" }
+  ],
+  "award": ["Pac-12 Coach of the Year (2023, 2026)", "NCAA All-American (2005)", "UTC Athletics Hall of Fame"],
+  "homeLocation": { "@type": "Place", "name": "San Luis Obispo, California" }
+}
+</script>
 <style>
 :root{
   --ink:#0E2E22;          /* deep forest, the anchor */
@@ -19,150 +42,367 @@
   --mat:#14120F;          /* charcoal */
   --gold:#C6A14B;         /* championship gold */
   --gold-bright:#E0BC63;
+  --gold-text:#7A5E1F;    /* gold for small text on light backgrounds */
   --bone:#F4F2EC;         /* off white */
+  --paper:#FBFAF6;
+  --sand:#E2DCCD;
   --stone:#A8B0A4;        /* muted text on dark */
+  --mist:#CFD6CC;         /* body text on dark */
+  --text:#2A2924;
+  --muted:#5B5A52;
   --line:rgba(198,161,75,.35);
-  --display:'Bebas Neue', Impact, sans-serif;
-  --body:'Source Sans 3', 'Segoe UI', sans-serif;
+  --line-soft:rgba(198,161,75,.18);
+  --display:'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  --body:'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+  --nav-h:68px;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
-body{font-family:var(--body);background:var(--bone);color:var(--mat);line-height:1.6;font-size:17px}
+body{font-family:var(--body);background:var(--bone);color:var(--text);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-
-/* ---------- Nav ---------- */
-.nav{position:sticky;top:0;z-index:50;background:var(--ink-deep);border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-.wordmark{font-family:var(--display);font-size:1.65rem;letter-spacing:.06em;color:var(--bone);text-decoration:none}
-.wordmark span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{color:var(--bone);text-decoration:none;font-size:.92rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.85;transition:opacity .15s}
-.nav-links a:hover,.nav-links a:focus-visible{opacity:1}
+ul,ol{list-style:none}
+h1,h2,h3,h4{font-weight:400}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.skip{position:absolute;left:-9999px;top:12px;z-index:100;background:var(--gold);color:var(--ink-deep);padding:10px 16px;font-weight:700;text-decoration:none}
+.skip:focus{left:12px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.btn{display:inline-block;font-family:var(--display);font-size:1.15rem;letter-spacing:.09em;padding:12px 28px 10px;text-decoration:none;border:2px solid var(--gold);transition:background .15s,color .15s;cursor:pointer}
+::selection{background:var(--gold);color:var(--ink-deep)}
+
+/* ---------- Type + buttons ---------- */
+.eyebrow{font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--gold-text);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:'';width:34px;height:2px;background:var(--gold);flex:none}
+.on-dark .eyebrow{color:var(--gold)}
+h2{font-family:var(--display);font-size:clamp(2.8rem,5.4vw,4.4rem);line-height:.92;letter-spacing:.015em;color:var(--ink);margin:16px 0 20px}
+.on-dark h2{color:#fff}
+h2 em{font-style:normal;color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--display);font-size:1.15rem;letter-spacing:.09em;line-height:1;padding:14px 28px 12px;text-decoration:none;border:2px solid var(--gold);transition:background .18s,color .18s,border-color .18s;cursor:pointer;white-space:nowrap}
 .btn-gold{background:var(--gold);color:var(--ink-deep)}
 .btn-gold:hover{background:var(--gold-bright);border-color:var(--gold-bright)}
 .btn-ghost{background:transparent;color:var(--bone)}
 .btn-ghost:hover{background:rgba(198,161,75,.15)}
-.nav .btn{font-size:1rem;padding:9px 20px 7px}
-.nav-toggle{display:none;background:none;border:0;color:var(--bone);font-size:1.6rem;cursor:pointer}
+.btn-ink{background:var(--ink);border-color:var(--ink);color:var(--bone)}
+.btn-ink:hover{background:var(--ink-deep);border-color:var(--ink-deep)}
+.btn .arrow{transition:transform .18s}
+.btn:hover .arrow{transform:translateX(4px)}
+section{padding:clamp(76px,10vw,124px) 0;position:relative}
+.sec-head{max-width:720px;margin-bottom:clamp(40px,6vw,60px)}
+.sec-head p{color:var(--muted);font-size:1.1rem;max-width:620px}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--nav-h);border-bottom:1px solid transparent;transition:background .25s,border-color .25s}
+.nav.is-scrolled,.menu-open .nav{background:rgba(9,32,24,.97);border-bottom-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:100%}
+.wordmark{font-family:var(--display);font-size:1.7rem;letter-spacing:.06em;line-height:1;color:var(--bone);text-decoration:none}
+.wordmark span{color:var(--gold)}
+.nav-menu{display:flex;align-items:center;gap:30px}
+.nav-menu a:not(.btn){position:relative;display:block;padding:6px 0;color:var(--bone);text-decoration:none;font-size:.84rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.82;transition:opacity .15s}
+.nav-menu a:not(.btn)::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav-menu a:not(.btn):hover,.nav-menu a.is-active{opacity:1}
+.nav-menu a:not(.btn):hover::after,.nav-menu a.is-active::after{transform:scaleX(1)}
+.nav .btn{font-size:1rem;padding:10px 20px 8px}
+.nav-toggle{display:none;position:relative;width:44px;height:44px;margin-right:-10px;background:none;border:0;cursor:pointer}
+.nav-toggle span{position:absolute;left:11px;right:11px;height:2px;background:var(--bone);transition:transform .2s,opacity .2s}
+.nav-toggle span:nth-child(1){top:15px}
+.nav-toggle span:nth-child(2){top:21px}
+.nav-toggle span:nth-child(3){top:27px}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;background:var(--ink-deep);color:var(--bone);overflow:hidden}
-.hero-img{position:absolute;inset:0;background:url('images/hero-coaching.jpg') center 22%/cover no-repeat}
+.hero{position:relative;background:var(--ink-deep);color:var(--bone);overflow:hidden;padding:calc(var(--nav-h) + clamp(84px,10vw,128px)) 0 clamp(88px,10vw,120px)}
+.hero-img{position:absolute;top:-40px;left:0;right:0;bottom:0;background:url('images/web/hero-1680.jpg') 40% 22%/cover no-repeat}
 .hero-img::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(9,32,24,.96) 0%,rgba(9,32,24,.82) 38%,rgba(9,32,24,.25) 75%,rgba(9,32,24,.45) 100%)}
-.hero-inner{position:relative;padding:120px 0 110px;max-width:640px}
-.eyebrow{font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.8rem;color:var(--gold);display:flex;align-items:center;gap:14px}
-.eyebrow::before{content:'';width:34px;height:2px;background:var(--gold)}
-.hero h1{font-family:var(--display);font-size:clamp(4rem,10vw,7.5rem);line-height:.92;letter-spacing:.015em;margin:18px 0 10px;color:#fff}
+  background:linear-gradient(0deg,rgba(9,32,24,.94) 0%,rgba(9,32,24,.55) 22%,rgba(9,32,24,0) 48%),
+             linear-gradient(100deg,rgba(9,32,24,.96) 0%,rgba(9,32,24,.82) 38%,rgba(9,32,24,.25) 75%,rgba(9,32,24,.45) 100%)}
+.hero::after{content:'';position:absolute;left:0;right:0;top:0;height:160px;background:linear-gradient(180deg,rgba(9,32,24,.75),rgba(9,32,24,0));pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:660px}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-family:var(--display);font-size:clamp(4rem,10vw,7.5rem);line-height:.92;letter-spacing:.015em;margin:18px 0 16px;color:#fff}
 .hero h1 em{font-style:normal;color:var(--gold)}
-.hero .sub{font-size:1.28rem;font-weight:600;color:var(--bone);margin-bottom:8px}
-.hero .lede{font-size:1.06rem;color:var(--stone);max-width:520px;margin-bottom:34px}
-.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.creds{display:flex;flex-direction:column;gap:4px;font-size:1.16rem;font-weight:600;line-height:1.4;color:var(--bone);margin-bottom:18px}
+.creds li{display:flex;align-items:flex-start;gap:12px}
+.creds li::before{content:'';flex:none;width:6px;height:6px;margin-top:.55em;background:var(--gold);transform:rotate(45deg)}
+.hero .lede{font-size:1.08rem;color:var(--mist);max-width:540px;margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 
 /* ---------- Scoreboard strip (signature) ---------- */
-.scoreboard{background:var(--mat);color:var(--bone);border-top:3px solid var(--gold);border-bottom:3px solid var(--gold)}
-.score-inner{display:grid;grid-template-columns:repeat(4,1fr);}
-.score-cell{padding:34px 20px;text-align:center;border-left:1px solid rgba(198,161,75,.25)}
+.scoreboard{position:relative;z-index:2;background:var(--mat);color:var(--bone);border-top:3px solid var(--gold);border-bottom:3px solid var(--gold)}
+.score-inner{display:grid;grid-template-columns:repeat(4,1fr)}
+.score-cell{padding:36px 18px 34px;text-align:center;border-left:1px solid rgba(198,161,75,.25)}
 .score-cell:first-child{border-left:0}
-.score-num{font-family:var(--display);font-size:3.4rem;line-height:1;color:var(--gold);letter-spacing:.03em}
-.score-label{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);margin-top:8px}
+.score-num{display:block;font-family:var(--display);font-size:clamp(2.8rem,4.6vw,3.8rem);line-height:1;color:var(--gold);letter-spacing:.03em}
+.score-label{display:block;font-size:.76rem;font-weight:600;letter-spacing:.16em;line-height:1.45;text-transform:uppercase;color:var(--stone);margin-top:10px}
 
-/* ---------- Sections ---------- */
-section{padding:96px 0}
-.sec-head{max-width:680px;margin-bottom:56px}
-.sec-head .eyebrow{color:#8a6c25}
-h2{font-family:var(--display);font-size:clamp(2.6rem,5vw,3.8rem);line-height:.95;letter-spacing:.02em;color:var(--ink);margin:14px 0 16px}
-.sec-head p{color:#4a4a44;font-size:1.08rem}
+/* ---------- Start here: three audiences ---------- */
+.paths{background:var(--bone)}
+.split-head{display:grid;grid-template-columns:1.1fr 1fr;gap:24px 72px;align-items:end;margin-bottom:clamp(40px,6vw,64px)}
+.split-head h2{margin-bottom:0}
+.split-head > p{color:var(--muted);font-size:1.1rem;padding-bottom:6px}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--sand)}
+.path{position:relative;display:flex;flex-direction:column;gap:12px;padding:40px 36px 8px 0;text-decoration:none;color:var(--text)}
+.path+.path{padding-left:36px;border-left:1px solid var(--sand)}
+.path:last-child{padding-right:0}
+.path::before{content:'';position:absolute;top:-2px;left:0;width:56px;height:3px;background:var(--gold);transition:width .35s ease}
+.path+.path::before{left:36px}
+.path:hover::before{width:calc(100% - 36px)}
+.path-num{font-family:var(--display);font-size:4.2rem;line-height:.8;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px var(--gold);margin-bottom:10px}
+.path-kicker{font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text)}
+.path h3{font-family:var(--display);font-size:2.05rem;line-height:1;letter-spacing:.02em;color:var(--ink)}
+.path p:not(.path-kicker){color:var(--muted);flex:1}
+.path-link{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-weight:700;font-size:.84rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.path-link::after{content:'→';color:var(--gold);transition:transform .2s}
+.path:hover .path-link::after{transform:translateX(4px)}
 
-/* ---------- Offer grid ---------- */
+/* ---------- The record ---------- */
+.record{background:var(--ink-deep);color:var(--mist);overflow:hidden}
+.mat-mark{position:absolute;right:-200px;top:-180px;width:760px;height:760px;opacity:.08;pointer-events:none}
+.record-head{position:relative;display:grid;grid-template-columns:1fr 1.15fr;gap:24px 80px;align-items:end;margin-bottom:72px}
+.record h2{font-size:clamp(3.2rem,7vw,5.6rem);margin-bottom:0}
+.record-intro p{font-size:1.1rem}
+.record-intro p+p{margin-top:16px}
+.timeline{position:relative;display:grid;grid-template-columns:repeat(7,1fr);gap:24px;margin-bottom:80px}
+.timeline::before{content:'';position:absolute;left:0;right:0;top:9px;height:1px;background:linear-gradient(90deg,rgba(198,161,75,.15),var(--gold))}
+.timeline li{position:relative;padding-top:38px}
+.timeline li::before{content:'';position:absolute;top:4px;left:0;width:11px;height:11px;background:var(--ink-deep);border:2px solid var(--gold);transform:rotate(45deg)}
+.timeline li.is-now::before{background:var(--gold);box-shadow:0 0 0 6px rgba(198,161,75,.2)}
+.t-year{display:block;font-family:var(--display);font-size:2.4rem;line-height:1;letter-spacing:.02em;color:var(--gold)}
+.t-title{display:block;margin:8px 0;font-weight:700;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.t-text{display:block;font-size:.95rem;line-height:1.5;color:var(--stone)}
+.season{position:relative;display:grid;grid-template-columns:.9fr 1.6fr;border:1px solid var(--line);background:rgba(14,46,34,.6)}
+.season-head{display:flex;flex-direction:column;justify-content:center;gap:14px;padding:44px 40px;border-right:1px solid var(--line)}
+.season-kicker{font-family:var(--display);font-size:1.25rem;letter-spacing:.14em;color:var(--gold)}
+.season h3{font-family:var(--display);font-size:clamp(2rem,3vw,2.7rem);line-height:.95;letter-spacing:.015em;color:#fff}
+.season-head p{color:var(--stone);font-size:1rem}
+.season-stats{display:grid;grid-template-columns:1fr 1fr}
+.season-stats li{display:flex;align-items:baseline;gap:20px;padding:34px 36px;border-bottom:1px solid var(--line-soft)}
+.season-stats li:nth-child(odd){border-right:1px solid var(--line-soft)}
+.season-stats li:nth-last-child(-n+2){border-bottom:0}
+.s-num{flex:none;min-width:76px;font-family:var(--display);font-size:3.4rem;line-height:.9;color:var(--gold)}
+.s-label{font-size:.98rem;line-height:1.45;color:var(--mist)}
+
+/* ---------- At a glance ---------- */
+.glance{background:var(--paper)}
+.glance-grid{display:grid;grid-template-columns:.85fr 1.6fr;gap:48px 80px;align-items:start}
+.glance-side{position:sticky;top:calc(var(--nav-h) + 40px)}
+.glance-side p{color:var(--muted);font-size:1.08rem;margin-bottom:28px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}
+.pillar{padding:30px 30px 30px 0;border-bottom:1px solid var(--sand)}
+.pillar:nth-child(even){padding:30px 0 30px 30px;border-left:1px solid var(--sand)}
+.pillar h3{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-family:var(--display);font-size:1.6rem;letter-spacing:.04em;line-height:1;color:var(--ink)}
+.pillar h3::before{content:'';flex:none;width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.pillar li{padding:8px 0;font-size:.97rem;line-height:1.5;border-top:1px solid rgba(14,46,34,.08)}
+.pillar li:first-child{border-top:0;padding-top:2px}
+.pillar strong{color:var(--ink)}
+
+/* ---------- Philosophy ---------- */
+.philosophy{background:var(--ink);color:var(--mist);padding:0}
+.philo-grid{display:grid;grid-template-columns:1fr 1fr;min-height:720px}
+.philo-photo{position:relative;overflow:hidden;background:var(--ink-deep)}
+.philo-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform:scale(1.12);transform-origin:50% 0}
+.philo-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,46,34,0) 62%,rgba(14,46,34,.92) 100%)}
+.philo-photo figcaption{position:absolute;left:18px;bottom:14px;z-index:1;font-size:.7rem;letter-spacing:.05em;color:rgba(244,242,236,.8);text-shadow:0 1px 3px rgba(0,0,0,.8)}
+.philo-copy{display:flex;flex-direction:column;justify-content:center;max-width:680px;padding:clamp(64px,8vw,108px) clamp(28px,6vw,84px)}
+.quote{margin:6px 0 28px;padding:4px 0 4px 30px;border-left:3px solid var(--gold)}
+.quote p{font-size:clamp(1.35rem,2.1vw,1.72rem);line-height:1.38;font-style:italic;color:#fff}
+.quote cite{display:block;margin-top:14px;font-style:normal;font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.philo-copy > p{font-size:1.04rem}
+.values{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;border:1px solid var(--line)}
+.values li{padding:18px 10px 14px;text-align:center;font-family:var(--display);font-size:1.55rem;letter-spacing:.06em;line-height:1;color:#fff;border-left:1px solid var(--line)}
+.values li:first-child{border-left:0}
+.values li span{display:block;margin-bottom:8px;font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.22em;color:var(--gold)}
+.philo-after{display:grid;grid-template-columns:1fr 1.55fr 1fr;gap:24px;padding-top:clamp(56px,7vw,84px);padding-bottom:clamp(76px,10vw,120px)}
+.panel{padding:36px 34px;border:1px solid var(--line);background:rgba(9,32,24,.35)}
+.panel h3{margin:14px 0 12px;font-family:var(--display);font-size:clamp(1.9rem,2.6vw,2.35rem);line-height:.95;letter-spacing:.015em;color:#fff}
+.panel p{font-size:.98rem}
+.big-num{display:block;font-family:var(--display);font-size:4.6rem;line-height:.85;color:var(--gold);margin:16px 0 10px}
+.panel .fine{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft);color:var(--stone);font-size:.93rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips li{padding:7px 12px 6px;border:1px solid var(--line);font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff}
+.chips b{margin-right:6px;font-family:var(--display);font-size:1.1rem;font-weight:400;letter-spacing:.04em;color:var(--gold)}
+.camp-cta{display:flex;flex-direction:column;gap:12px;padding:36px 34px;background:var(--gold);color:var(--ink-deep)}
+.camp-cta .eyebrow{color:var(--ink-deep)}
+.camp-cta .eyebrow::before{background:var(--ink-deep)}
+.camp-cta h3{margin-top:4px;font-family:var(--display);font-size:2.35rem;line-height:.95;letter-spacing:.015em}
+.camp-cta p:not(.eyebrow){flex:1;color:#2E2914;font-size:.98rem}
+.panel .eyebrow,.camp-cta .eyebrow{letter-spacing:.16em;gap:10px}
+.panel .eyebrow::before,.camp-cta .eyebrow::before{width:22px}
+.camp-cta .btn{align-self:flex-start;background:var(--ink-deep);border-color:var(--ink-deep);color:var(--bone)}
+.camp-cta .btn:hover{background:var(--ink);border-color:var(--ink)}
+
+/* ---------- Work with Jon ---------- */
 .offers{background:var(--bone)}
-.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.card{background:#fff;border:1px solid #e2ddd0;display:flex;flex-direction:column;text-decoration:none;color:var(--mat);transition:transform .18s,box-shadow .18s}
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--sand);text-decoration:none;color:var(--text);transition:transform .18s,box-shadow .18s}
 .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,46,34,.14)}
 .card-img{aspect-ratio:16/9;overflow:hidden;background:var(--ink)}
 .card-img img{width:100%;height:100%;object-fit:cover}
-.card-body{padding:26px 28px 30px;display:flex;flex-direction:column;gap:10px;flex:1}
-.card-kicker{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#8a6c25}
-.card h3{font-family:var(--display);font-size:1.9rem;letter-spacing:.03em;color:var(--ink);line-height:1}
-.card p{color:#4a4a44;font-size:.99rem;flex:1}
-.card-link{font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.card-img-placeholder{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#e2ddd0,#e2ddd0 12px,#d3cdbb 12px,#d3cdbb 24px)}
+.card-img-placeholder span{font-family:var(--display);letter-spacing:.1em;text-transform:uppercase;font-size:1.05rem;color:#76736a}
+.card-body{display:flex;flex-direction:column;gap:10px;flex:1;padding:26px 28px 30px}
+.card-kicker{font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text)}
+.card h3{font-family:var(--display);font-size:1.95rem;letter-spacing:.03em;line-height:1;color:var(--ink)}
+.card p:not(.card-kicker){flex:1;color:var(--muted);font-size:.99rem}
+.card-link{font-weight:700;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
 .card-link::after{content:' →';color:var(--gold)}
+.process{display:grid;grid-template-columns:1fr auto;align-items:center;gap:26px 40px;margin-top:clamp(48px,6vw,72px);padding:34px 40px 38px;background:var(--ink);color:var(--mist)}
+.process-title{grid-column:1;grid-row:1;font-family:var(--display);font-size:2.1rem;line-height:1;letter-spacing:.03em;color:#fff}
+.process .btn{grid-column:2;grid-row:1}
+.steps{grid-column:1 / -1;grid-row:2;display:grid;grid-template-columns:repeat(3,1fr);gap:28px 40px;padding-top:28px;border-top:1px solid var(--line-soft)}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:2px 14px}
+.step-num{grid-row:span 2;font-family:var(--display);font-size:2.2rem;line-height:.9;color:var(--gold)}
+.steps h4{font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.steps p{font-size:.92rem;line-height:1.45;color:var(--stone)}
 
 /* ---------- About ---------- */
-.about{background:var(--ink);color:var(--bone)}
-.about h2{color:#fff}
-.about-grid{display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:start}
-.about-photo{position:relative}
-.about-photo img{border:1px solid var(--line)}
+.about{background:var(--ink-deep);color:var(--mist)}
+.about-grid{display:grid;grid-template-columns:400px 1fr;gap:48px 80px;align-items:start}
+.about-photo{position:sticky;top:calc(var(--nav-h) + 40px);isolation:isolate}
+.about-photo img{width:100%;height:auto;border:1px solid var(--line)}
 .about-photo::after{content:'';position:absolute;top:16px;left:16px;right:-16px;bottom:-16px;border:2px solid var(--gold);z-index:-1}
-.about-copy p{color:#cfd6cc;margin-bottom:18px;font-size:1.04rem}
-.about-copy strong{color:#fff}
-.resume-list{margin-top:30px;border-top:1px solid var(--line)}
-.resume-row{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid rgba(198,161,75,.18);font-size:.98rem}
-.resume-row .yr{font-family:var(--display);font-size:1.15rem;letter-spacing:.05em;color:var(--gold)}
-.resume-row .what{color:#cfd6cc}
-.resume-row .what strong{color:#fff}
+.about-copy > p{margin-bottom:18px;font-size:1.04rem}
+.about-copy > .about-lede{font-size:1.45rem;line-height:1.35;color:#fff}
+.list-title{margin:40px 0 6px;font-family:var(--display);font-size:1.55rem;letter-spacing:.06em;color:#fff}
+.resume-list{border-top:1px solid var(--line)}
+.resume-row{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line-soft)}
+.resume-row .yr{font-family:var(--display);font-size:1.3rem;letter-spacing:.04em;line-height:1.25;color:var(--gold)}
+.resume-row .what{font-size:.97rem;color:var(--stone)}
+.resume-row .what strong{display:block;font-weight:600;color:#fff}
+.family{margin-top:32px;font-style:italic;color:var(--stone)}
 
-/* ---------- Form ---------- */
+/* ---------- Book ---------- */
 .book{background:var(--bone)}
-.book-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
-.book-side p{color:#4a4a44;margin-bottom:20px}
-.book-side .points{list-style:none;margin-top:8px}
-.book-side .points li{padding:10px 0 10px 30px;position:relative;border-bottom:1px solid #e2ddd0;font-size:.98rem}
-.book-side .points li::before{content:'';position:absolute;left:0;top:18px;width:14px;height:2px;background:var(--gold)}
-form{background:#fff;border:1px solid #e2ddd0;padding:40px}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.f-group{margin-bottom:18px;display:flex;flex-direction:column;gap:6px}
-label{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
-input,select,textarea{font-family:var(--body);font-size:1rem;padding:12px 14px;border:1px solid #cfc9b8;background:var(--bone);color:var(--mat);width:100%}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold)}
-textarea{min-height:120px;resize:vertical}
-form .btn{width:100%;text-align:center;font-size:1.3rem;margin-top:6px}
-.form-note{font-size:.85rem;color:#8a877c;margin-top:14px;text-align:center}
+.book-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:48px 80px;align-items:start}
+.book-side > p{margin-bottom:22px;color:var(--muted);font-size:1.08rem}
+.points li{position:relative;padding:12px 0 12px 30px;border-bottom:1px solid var(--sand)}
+.points li::before{content:'';position:absolute;left:0;top:25px;width:14px;height:2px;background:var(--gold)}
+.book-note{margin-top:32px;padding:22px 24px;border-left:3px solid var(--gold);background:var(--paper)}
+.book-note strong{display:block;margin-bottom:6px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text)}
+.book-note p{font-size:.98rem;color:var(--muted)}
+.book-note a{font-weight:700;color:var(--ink)}
+form{position:relative;padding:clamp(28px,4vw,44px);background:#fff;border:1px solid var(--sand);border-top:4px solid var(--gold);box-shadow:0 30px 60px -34px rgba(14,46,34,.28)}
+.form-title{margin-bottom:22px;font-family:var(--display);font-size:1.95rem;line-height:1;letter-spacing:.03em;color:var(--ink)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.f-group{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+label{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+input,select,textarea{width:100%;padding:13px 14px;font-family:var(--body);font-size:1rem;color:var(--text);background:var(--paper);border:1px solid #cfc9b8;border-radius:0;-webkit-appearance:none;appearance:none}
+select{padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237A5E1F' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold);background-color:#fff}
+textarea{min-height:128px;resize:vertical}
+form .btn{width:100%;margin-top:6px;padding:17px 28px 15px;font-size:1.3rem}
+.form-note{margin-top:14px;text-align:center;font-size:.85rem;color:#76736a}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
 /* ---------- Footer ---------- */
-footer{background:var(--ink-deep);color:var(--stone);padding:54px 0 40px;font-size:.92rem}
-.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.foot-links{display:flex;gap:22px;list-style:none}
-.foot-links a{color:var(--stone);text-decoration:none}
-.foot-links a:hover{color:var(--gold)}
-footer .wordmark{font-size:1.3rem}
+.site-footer{background:var(--mat);color:var(--stone);font-size:.93rem;border-top:3px solid var(--gold)}
+.foot-top{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding-top:64px;padding-bottom:48px}
+.site-footer .wordmark{font-size:2.3rem}
+.foot-brand p{margin-top:12px}
+.foot-nav{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.foot-nav li+li{margin-top:10px}
+.foot-nav a{color:var(--mist);text-decoration:none}
+.foot-nav a:hover{color:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding-top:22px;padding-bottom:28px;border-top:1px solid var(--line-soft);font-size:.82rem}
 
 /* ---------- Responsive ---------- */
+@media (max-width:1100px){
+  .nav-menu{gap:22px}
+  .timeline{grid-template-columns:repeat(4,1fr);row-gap:44px}
+  .timeline::before{display:none}
+  .glance-grid{grid-template-columns:1fr}
+  .glance-side{position:static;max-width:720px}
+  .philo-after{grid-template-columns:1fr 1fr}
+  .philo-after .panel-story{grid-column:1 / -1;order:-1}
+}
 @media (max-width:900px){
-  .nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--ink-deep);flex-direction:column;padding:20px 24px 26px;gap:18px;border-bottom:1px solid var(--line)}
-  .nav-links.open{display:flex}
+  :root{--nav-h:62px}
   .nav-toggle{display:block}
-  .hero-inner{padding:84px 0 80px}
+  .nav-menu{position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:6px 28px 26px;background:var(--ink-deep);border-bottom:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+  .nav-menu.open{opacity:1;visibility:visible;transform:none}
+  .nav-menu li{border-bottom:1px solid var(--line-soft)}
+  .nav-menu li:last-child{border-bottom:0;padding-top:18px}
+  .nav-menu a:not(.btn){padding:15px 0;font-size:.95rem}
+  .nav-menu a:not(.btn)::after{display:none}
+  .nav-menu .btn{width:100%;padding:15px 20px 13px;font-size:1.15rem}
+  .hero-img{background-image:url('images/web/hero-1100.jpg');background-position:45% 18%}
+  .hero-img::after{background:linear-gradient(180deg,rgba(9,32,24,.5) 0%,rgba(9,32,24,.78) 45%,rgba(9,32,24,.95) 100%)}
   .score-inner{grid-template-columns:1fr 1fr}
   .score-cell:nth-child(3){border-left:0}
-  .score-cell{border-top:1px solid rgba(198,161,75,.25)}
-  .score-cell:nth-child(-n+2){border-top:0}
-  .offer-grid,.about-grid,.book-grid,.f-row{grid-template-columns:1fr}
-  .about-grid{gap:44px}
-  .about-photo{max-width:340px}
-  section{padding:72px 0}
+  .score-cell:nth-child(n+3){border-top:1px solid rgba(198,161,75,.25)}
+  .split-head,.record-head,.book-grid,.about-grid{grid-template-columns:1fr}
+  .path-grid{grid-template-columns:1fr}
+  .path,.path+.path{padding:34px 0;border-left:0;border-bottom:1px solid var(--sand)}
+  .path+.path::before{left:0}
+  .path:last-child{border-bottom:0}
+  .season{grid-template-columns:1fr}
+  .season-head{border-right:0;border-bottom:1px solid var(--line)}
+  .philo-grid{grid-template-columns:1fr;min-height:0}
+  .philo-photo{aspect-ratio:4/3}
+  .philo-photo::after{background:linear-gradient(180deg,rgba(14,46,34,0) 55%,rgba(14,46,34,.9) 100%)}
+  .offer-grid{grid-template-columns:1fr;max-width:600px}
+  .process{grid-template-columns:1fr;padding:30px 26px 32px}
+  .process .btn{grid-column:1;grid-row:3;justify-self:start}
+  .steps{grid-template-columns:1fr}
+  .about-photo{position:relative;top:auto;max-width:340px}
+  .foot-top{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 20px}
+  .creds{font-size:1.04rem}
+  .hero-ctas .btn{flex:1 1 100%}
+  .timeline{grid-template-columns:1fr;gap:0;padding-left:30px}
+  .timeline::before{display:block;left:5px;right:auto;top:10px;bottom:34px;width:1px;height:auto;background:linear-gradient(180deg,rgba(198,161,75,.2),var(--gold))}
+  .timeline li{padding:0 0 30px}
+  .timeline li::before{left:-30px;top:12px}
+  .t-year{font-size:2.1rem}
+  .season-head{padding:34px 26px}
+  .season-stats{grid-template-columns:1fr}
+  .season-stats li{padding:24px 26px}
+  .season-stats li:nth-child(odd){border-right:0}
+  .season-stats li:nth-last-child(2){border-bottom:1px solid var(--line-soft)}
+  .pillars{grid-template-columns:1fr}
+  .pillar,.pillar:nth-child(even){padding:26px 0;border-left:0}
+  .values{grid-template-columns:1fr 1fr}
+  .values li:nth-child(3){border-left:0}
+  .values li:nth-child(n+3){border-top:1px solid var(--line)}
+  .philo-after{grid-template-columns:1fr}
+  .panel,.camp-cta{padding:30px 26px}
+  .f-row{grid-template-columns:1fr}
+  .resume-row{grid-template-columns:1fr;gap:2px}
+  .foot-nav{grid-template-columns:1fr}
+}
+
+/* ---------- Print: a clean one-document résumé ---------- */
+@media print{
+  .nav,.skip,.hero-img,.hero::after,.hero-ctas,.paths,.mat-mark,.philo-photo,.camp-cta,.card-img,.process,.book form,.book-note,.btn{display:none!important}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  section,.hero{padding:18pt 0!important}
+  .hero,.scoreboard,.record,.philosophy,.about,.glance,.offers,.book,.site-footer{background:#fff!important;border-color:#999!important}
+  .hero *,.scoreboard *,.record *,.philosophy *,.about *,.site-footer *,h2,h3{color:#000!important}
+  .philo-grid,.about-grid,.glance-grid,.record-head,.book-grid{display:block}
+  .about-photo,.glance-side{position:static}
+  .timeline,.season,.pillar,.panel,.card{break-inside:avoid}
 }
 </style>
 </head>
 <body>
 
-<nav class="nav">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
   <div class="wrap nav-inner">
     <a class="wordmark" href="#top">JON <span>SIOREDAS</span></a>
-    <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-    <ul class="nav-links">
-      <li><a href="#camps">Camps &amp; Clinics</a></li>
-      <li><a href="#offers">MWC</a></li>
-      <li><a href="#offers">Speaking</a></li>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="#record">The Record</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#work">Work With Jon</a></li>
       <li><a href="#about">About</a></li>
       <li><a class="btn btn-gold" href="#book">Book Jon</a></li>
     </ul>
@@ -173,152 +413,363 @@ footer .wordmark{font-size:1.3rem}
   <div class="hero-img" role="img" aria-label="Jon Sioredas coaching mat side in front of a packed home crowd"></div>
   <div class="wrap">
     <div class="hero-inner">
-      <p class="eyebrow">NCAA Division I Head Wrestling Coach</p>
+      <p class="eyebrow">Head Wrestling Coach · Cal Poly</p>
       <h1>JON<br><em>SIOREDAS</em></h1>
-      <p class="sub">Head Wrestling Coach, Cal Poly · Director, Mustang Wrestling Camp</p>
-      <p class="lede">Camps. Clinics. Speaking. Bring the standards, systems, and energy of a Division I room to your school or club.</p>
+      <ul class="creds">
+        <li>Two-Time Pac-12 Coach of the Year</li>
+        <li>President, National Wrestling Coaches Association</li>
+      </ul>
+      <p class="lede">He took over a program that had just finished last in the Pac-12 and built it into a national Top 25 fixture. Now he brings that standard to your athletes, your coaches and your program.</p>
       <div class="hero-ctas">
         <a class="btn btn-gold" href="#book">Book a Camp or Clinic</a>
-        <a class="btn btn-ghost" href="#about">The Resume</a>
+        <a class="btn btn-ghost" href="#record">See the Record</a>
       </div>
     </div>
   </div>
 </header>
 
+<main id="main">
+
 <!-- Signature element: dual meet scoreboard credibility strip -->
 <div class="scoreboard" aria-label="Career highlights">
-  <div class="wrap score-inner">
-    <div class="score-cell">
-      <div class="score-num">2025&#8209;26</div>
-      <div class="score-label">Most Decorated Season in Program History</div>
-    </div>
-    <div class="score-cell">
-      <div class="score-num">6</div>
-      <div class="score-label">All Americans in a Single Season</div>
-    </div>
-    <div class="score-cell">
-      <div class="score-num">3RD</div>
-      <div class="score-label">NCAA Podium Finish · Zeth Romney</div>
-    </div>
-    <div class="score-cell">
-      <div class="score-num">20+</div>
-      <div class="score-label">Years Developing Wrestlers <!-- TODO: confirm number --></div>
-    </div>
-  </div>
+  <ul class="wrap score-inner">
+    <li class="score-cell"><span class="score-num">2×</span><span class="score-label">Pac-12 Coach of the Year</span></li>
+    <li class="score-cell"><span class="score-num">6</span><span class="score-label">Straight Seasons in the National Top 25</span></li>
+    <li class="score-cell"><span class="score-num">70</span><span class="score-label">NCAA Qualifiers Coached</span></li>
+    <li class="score-cell"><span class="score-num">24</span><span class="score-label">Academic All-Americans Coached</span></li>
+  </ul>
 </div>
 
-<section class="offers" id="offers">
+<section class="paths" aria-labelledby="paths-title">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="eyebrow">Start Here</p>
+        <h2 id="paths-title">One Standard.<br>Every Room.</h2>
+      </div>
+      <p>Whether you run a club, lead an organization or are trusting a coach with your wrestler, the standard is the same: set it high, then live it every day.</p>
+    </div>
+    <div class="path-grid">
+      <a class="path" href="#work">
+        <span class="path-num" aria-hidden="true">01</span>
+        <p class="path-kicker">Coaches &amp; Clubs</p>
+        <h3>Bring a Division I Practice to Your Mat</h3>
+        <p>Clinics, camps and keynotes for high school and club programs across the country.</p>
+        <span class="path-link">Work With Jon</span>
+      </a>
+      <a class="path" href="#philosophy">
+        <span class="path-num" aria-hidden="true">02</span>
+        <p class="path-kicker">Parents &amp; Athletes</p>
+        <h3>Remarkable Men for Life After Wrestling</h3>
+        <p>The core values, the classroom results and the summer camp where young wrestlers train at Cal Poly.</p>
+        <span class="path-link">The Philosophy</span>
+      </a>
+      <a class="path" href="#record">
+        <span class="path-num" aria-hidden="true">03</span>
+        <p class="path-kicker">Leaders &amp; Organizations</p>
+        <h3>Last Place to the National Top 25</h3>
+        <p>The turnaround, the record fundraising and a national voice for the sport.</p>
+        <span class="path-link">The Record</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="record on-dark" id="record" aria-labelledby="record-title">
+  <svg class="mat-mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><g fill="none" stroke="#C6A14B"><circle cx="200" cy="200" r="190" stroke-width="3"/><circle cx="200" cy="200" r="150" stroke-width="1"/><circle cx="200" cy="200" r="68" stroke-width="3"/><path d="M188 193h24M188 207h24" stroke-width="3"/></g></svg>
+  <div class="wrap">
+    <div class="record-head">
+      <div>
+        <p class="eyebrow">The Record</p>
+        <h2 id="record-title">Last Place<br>to <em>Top 25</em></h2>
+      </div>
+      <div class="record-intro">
+        <p>When Jon arrived in San Luis Obispo before the 2016-17 season, Cal Poly had just finished last in the Pac-12 and had no NCAA qualifiers. On his first day he wrote down a single goal: a Top 25 program within five years.</p>
+        <p>The Mustangs lost every dual in his second and third seasons. Instead of chasing quick fixes, he rebuilt the foundation: launching the Mustang Wrestling Foundation, overhauling fundraising and anchoring the program to a set of core values.</p>
+      </div>
+    </div>
+
+    <ol class="timeline">
+      <li><span class="t-year">2016</span><span class="t-title">Day One</span><span class="t-text">Last in the Pac-12. No NCAA qualifiers. One goal: Top 25 in five years.</span></li>
+      <li><span class="t-year">2018</span><span class="t-title">The Foundation</span><span class="t-text">The Mustang Wrestling Foundation launches and the rebuild takes root.</span></li>
+      <li><span class="t-year">2021</span><span class="t-title">Goal Reached</span><span class="t-text">25th in the nation. The Mustangs have not left the Top 25 since.</span></li>
+      <li><span class="t-year">2022</span><span class="t-title">Top 10</span><span class="t-text">Into the national top 10 for the first time in 39 years.</span></li>
+      <li><span class="t-year">2023</span><span class="t-title">Conference Champions</span><span class="t-text">A 5-0 run to the first Pac-12 dual title in program history and Pac-12 Coach of the Year.</span></li>
+      <li><span class="t-year">2025</span><span class="t-title">NCAA Podium</span><span class="t-text">Third place at the NCAA Championships at 133 pounds and a Top 15 national ranking.</span></li>
+      <li class="is-now"><span class="t-year">2026</span><span class="t-title">Record Season</span><span class="t-text">Three Pac-12 champions, a second Coach of the Year award and the NWCA presidency.</span></li>
+    </ol>
+
+    <div class="season">
+      <div class="season-head">
+        <p class="season-kicker">2025-26</p>
+        <h3>The Most Decorated Season of the Modern Era</h3>
+        <p>And all of it after losing a 2025 All-American to a season-ending injury in December.</p>
+      </div>
+      <ul class="season-stats">
+        <li><span class="s-num">3</span><span class="s-label">Pac-12 champions, a program record, crowned on Cal Poly's home mat</span></li>
+        <li><span class="s-num">4th</span><span class="s-label">At the Ken Kraft Midlands Championships, a program best with a record six placers</span></li>
+        <li><span class="s-num">6</span><span class="s-label">NWCA Scholar All-Americans, a program record</span></li>
+        <li><span class="s-num">4</span><span class="s-label">NCAA qualifiers for the fifth straight season, a run matched only once in program history</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="glance" id="glance" aria-labelledby="glance-title">
+  <div class="wrap glance-grid">
+    <div class="glance-side">
+      <p class="eyebrow">At a Glance</p>
+      <h2 id="glance-title">Built the<br>Right Way</h2>
+      <p>Winning is one line on the résumé. The program Jon built also sets records in the classroom, raises more private support than at any point in its 78-year history and gives Cal Poly a seat at the head of the table as college wrestling navigates a period of unprecedented change.</p>
+      <a class="btn btn-ink" href="downloads/Jon-Sioredas-Bio.pdf" download>Download the Full Bio <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <h3>National Leadership</h3>
+        <ul>
+          <li><strong>President</strong>, National Wrestling Coaches Association (2026-28)</li>
+          <li>NCAA Division I Men's Wrestling Rules Subcommittee (2026-30)</li>
+          <li>Pac-12 representative, NWCA Division I Leadership Group</li>
+          <li>Panelist, NWCA National Convention</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <h3>On the Mat</h3>
+        <ul>
+          <li><strong>Pac-12 Coach of the Year</strong> in 2023 and 2026, the only coach in program history to earn it</li>
+          <li>National Top 25 six straight seasons, including Top 10 in 2022</li>
+          <li>Six All-Americans since 2020</li>
+          <li>First Pac-12 dual title in program history (2023)</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <h3>In the Classroom</h3>
+        <ul>
+          <li><strong>Program-record six</strong> NWCA Scholar All-Americans (2026)</li>
+          <li>Highest team GPA in program history</li>
+          <li>Half the roster at a 3.5 GPA or better (winter 2026)</li>
+          <li>NCAA APR top 10 nationally (2017-19) and a perfect APR (2023)</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <h3>Recruiting</h3>
+        <ul>
+          <li><strong>Eleven Top 100 recruits</strong> (2019-26)</li>
+          <li>Seven nationally ranked transfers (2020-25)</li>
+          <li>Top 25 recruiting class (2019)</li>
+          <li>Seven Top 25 recruiting classes across his career</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <h3>Fundraising</h3>
+        <ul>
+          <li><strong>Record fundraising</strong> in 2025-26, up 20 percent year over year</li>
+          <li>Most individual donors in program history</li>
+          <li>Mustang Wrestling Foundation partnership (est. 2018) funding staff, scholarships, revenue sharing, operations and the Central Coast RTC</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <h3>Program Leadership</h3>
+        <ul>
+          <li><strong>Contract extended</strong> through 2029-30</li>
+          <li>Directs Mustang Wrestling Camp, bringing hundreds of young wrestlers to SLO each summer</li>
+          <li>Added Iowa All-American Nelson Brands to the staff (2026)</li>
+          <li>Mental-performance training built into the program</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy on-dark" id="philosophy" aria-labelledby="philosophy-title">
+  <div class="philo-grid">
+    <figure class="philo-photo">
+      <img src="images/web/ncaa-embrace.jpg" alt="Jon Sioredas embracing a Cal Poly wrestler at the NCAA Championships" width="1100" height="734" loading="lazy" decoding="async">
+      <figcaption>Photo: Tony Rotundo / WrestlersAreWarriors.com</figcaption>
+    </figure>
+    <div class="philo-copy">
+      <p class="eyebrow">The Philosophy</p>
+      <h2 id="philosophy-title">Purpose<br>Over Outcome</h2>
+      <blockquote class="quote">
+        <p>“Our purpose is to create remarkable men for life after wrestling. Winning wrestling matches is the secondary benefit.”</p>
+        <cite>Jon Sioredas</cite>
+      </blockquote>
+      <p>Every Mustang is measured against four core values, and the standard is the same for the staff. Jon lifts and trains alongside his athletes, meets with his student-athlete leadership group every week and has built mental-performance training into the program.</p>
+      <ol class="values" aria-label="Core values">
+        <li><span>01</span>Attitude</li>
+        <li><span>02</span>Effort</li>
+        <li><span>03</span>Growth</li>
+        <li><span>04</span>Respect</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="wrap philo-after">
+    <div class="panel">
+      <p class="eyebrow">In the Classroom</p>
+      <span class="big-num">3.5+</span>
+      <p>GPA or better for half the roster in winter 2026.</p>
+      <p class="fine">The highest team GPA in program history, and a program-record six NWCA Scholar All-Americans.</p>
+    </div>
+    <div class="panel panel-story">
+      <p class="eyebrow">The Template</p>
+      <h3>From Walk-On to Two-Time Champion</h3>
+      <p>Trevor Tinker was a lightly recruited walk-on who joined the room as a practice partner. He left Cal Poly as the first two-time Pac-12 heavyweight champion in program history, a four-time NCAA qualifier, a three-time Scholar All-American and with a postgraduate certificate in fire protection engineering.</p>
+      <ul class="chips">
+        <li><b>2×</b>Pac-12 Champion</li>
+        <li><b>4×</b>NCAA Qualifier</li>
+        <li><b>3×</b>Scholar All-American</li>
+      </ul>
+    </div>
+    <div class="camp-cta">
+      <p class="eyebrow">For Young Wrestlers</p>
+      <h3>Mustang Wrestling Camp</h3>
+      <p>Hundreds of young wrestlers train in San Luis Obispo each summer at the camp Jon directs on the Cal Poly campus.</p>
+      <a class="btn" href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">Visit the Camp Site <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="offers" id="work" aria-labelledby="work-title">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Work With Jon</p>
-      <h2>Four Ways to Bring It</h2>
+      <h2 id="work-title">Raise the Standard</h2>
+      <!-- TODO: revisit this headline + eyebrow copy, tighten up later -->
       <p>Every engagement is built around one idea: raise the standard in the room and leave your athletes and coaches with tools they will actually use.</p>
     </div>
     <div class="offer-grid">
 
       <a class="card" href="#book" id="camps">
-        <div class="card-img"><img src="images/jon-ncaa.jpg" alt="Jon Sioredas embracing an athlete at the NCAA Championships"></div>
+        <div class="card-img"><img src="images/web/camps-clinics.jpg" alt="Jon Sioredas pumping both fists, celebrating with his team" width="1200" height="675" loading="lazy" decoding="async" style="object-position:center 20%"></div>
         <div class="card-body">
-          <p class="card-kicker">At Your School or Club</p>
+          <p class="card-kicker">High School &amp; Club Programs</p>
           <h3>Camps &amp; Clinics on the Road</h3>
-          <p>A Division I practice brought to your mat. Technique blocks, live goes, and culture talks tailored to your athletes, from youth clubs to high school programs building toward the next level.</p>
+          <p>A Division I practice brought to your mat. Technique blocks, live goes and culture talks built around your athletes, from youth clubs to high school programs building toward the next level.</p>
           <span class="card-link">Request Dates</span>
         </div>
       </a>
 
       <a class="card" href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">
-        <div class="card-img"><img src="images/hero-coaching.jpg" alt="Jon Sioredas directing action from mat side"></div>
+        <div class="card-img card-img-placeholder"><span>Photo Coming Soon</span></div>
         <div class="card-body">
           <p class="card-kicker">On Campus at Cal Poly</p>
           <h3>Mustang Wrestling Camp</h3>
-          <p>The flagship summer experience in San Luis Obispo. Train inside a Division I environment with college coaches and athletes, and live the standard for a full week.</p>
+          <p>The flagship summer camp in San Luis Obispo, bringing hundreds of young wrestlers to the Cal Poly campus each summer.</p>
           <span class="card-link">Visit Camp Site</span>
         </div>
       </a>
 
       <a class="card" href="#book">
-        <div class="card-img"><img src="images/jon-sideline.jpg" alt="Jon Sioredas in a suit coaching from the corner"></div>
+        <div class="card-img"><img src="images/web/speaking-podium.jpg" alt="Jon Sioredas speaking at the podium for the Cal Poly Wrestling 75th Anniversary celebration" width="1100" height="1649" loading="lazy" decoding="async" style="object-position:center 42%;transform:scale(1.3) translateX(-6%)"></div>
         <div class="card-body">
           <p class="card-kicker">Teams, Events, Organizations</p>
           <h3>Speaking Engagements</h3>
-          <p>Keynotes and team talks on leadership, culture, and competing under pressure. Built from two decades inside high level rooms and delivered straight, no filler.</p>
+          <p>Keynotes, banquets and coaches' sessions on culture, leadership and building sustainable programs. Built from 20 seasons in college wrestling and delivered straight, no filler.</p>
           <span class="card-link">Invite Jon to Speak</span>
         </div>
       </a>
 
-      <a class="card" href="#book">
-        <div class="card-img"><img src="images/jon-headshot.jpg" alt="Jon Sioredas portrait" style="object-position:center 30%"></div>
-        <div class="card-body">
-          <p class="card-kicker">For Coaches and Programs</p>
-          <h3>Program Consulting</h3>
-          <p>One on one work with coaches and athletic departments on program building: staff structure, fundraising, culture systems, and the operational side nobody teaches you.</p>
-          <span class="card-link">Start a Conversation</span>
-        </div>
-      </a>
+    </div>
 
+    <div class="process">
+      <p class="process-title">How Booking Works</p>
+      <ol class="steps">
+        <li><span class="step-num">01</span><h4>Tell Us About Your Group</h4><p>Ages, levels, numbers and what you are building toward.</p></li>
+        <li><span class="step-num">02</span><h4>We Build the Session</h4><p>Technique, culture, leadership or all three, shaped around your goals.</p></li>
+        <li><span class="step-num">03</span><h4>Lock In the Date</h4><p>Expect a reply within 48 hours with availability and options.</p></li>
+      </ol>
+      <a class="btn btn-gold" href="#book">Start a Request <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 
-<section class="about" id="about">
+<section class="about on-dark" id="about" aria-labelledby="about-title">
   <div class="wrap about-grid">
     <div class="about-photo">
-      <img src="images/jon-headshot.jpg" alt="Jon Sioredas, Head Wrestling Coach at Cal Poly">
+      <img src="images/web/headshot.jpg" alt="Jon Sioredas, head wrestling coach at Cal Poly" width="760" height="1139" loading="lazy" decoding="async">
     </div>
     <div class="about-copy">
-      <p class="eyebrow">The Resume</p>
-      <h2>Built the Hard Way</h2>
-      <p><strong>Jon Sioredas is the Head Wrestling Coach at Cal Poly</strong>, where he just led the most decorated season in program history: six All Americans and a third place NCAA finish by Zeth Romney headlining a breakthrough year on the national stage.</p>
-      <p>Beyond the dual meets and the podiums, Jon runs the full operation. He directs Mustang Wrestling Camp, leads a staff of seven, and partners with a donor foundation to fund and grow the program. He knows what it takes to build, because he has done the building.</p>
-      <p>That is what he brings to your room: not just technique, but the standards and systems behind a program on the rise.</p>
+      <p class="eyebrow">About Jon</p>
+      <h2 id="about-title">A Competitor<br>First</h2>
+      <p class="about-lede">Before he built programs, Jon won at every level.</p>
+      <p>At Great Bridge High School in Chesapeake, Virginia, he was a state champion, national champion and All-American who went 181-13, the fourth-most wins in Virginia high school history. At Chattanooga he placed fifth at 165 pounds at the 2005 NCAA Championships to become an All-American, won two Southern Conference titles and was named SoCon Wrestler of the Year and tournament MVP. He was later inducted into the UTC Athletics Hall of Fame.</p>
+      <p>In 20 seasons of college coaching, 12 of them as a head coach, he has been part of 11 nationally ranked teams and has coached 10 NCAA All-Americans, 70 NCAA qualifiers and 24 Academic All-Americans, while recruiting seven Top 25 classes.</p>
+
+      <h3 class="list-title">Coaching Career</h3>
       <div class="resume-list">
-        <!-- TODO: Jon to confirm/complete career timeline -->
-        <div class="resume-row"><span class="yr">NOW</span><span class="what"><strong>Head Wrestling Coach</strong> · Cal Poly, San Luis Obispo</span></div>
-        <div class="resume-row"><span class="yr">2025&#8209;26</span><span class="what"><strong>Most decorated season in program history</strong> · 6 All Americans</span></div>
-        <div class="resume-row"><span class="yr">YEAR</span><span class="what"><strong>Placeholder</strong> · Prior coaching stop or milestone</span></div>
-        <div class="resume-row"><span class="yr">YEAR</span><span class="what"><strong>Placeholder</strong> · Competitive career highlight</span></div>
+        <div class="resume-row"><span class="yr">Cal Poly</span><span class="what"><strong>Head Coach, 2016–Present</strong>Two-time Pac-12 Coach of the Year and a national Top 25 program six straight seasons</span></div>
+        <div class="resume-row"><span class="yr">Grand Canyon</span><span class="what"><strong>Head Coach</strong>Guided the move from Division II to Division I and signed a nationally ranked class with three Top 100 recruits in two seasons</span></div>
+        <div class="resume-row"><span class="yr">Chattanooga</span><span class="what"><strong>Assistant Coach, Two Seasons</strong>A No. 19 national ranking and a sweep of the Southern Conference regular-season and tournament titles</span></div>
+        <div class="resume-row"><span class="yr">Old Dominion</span><span class="what"><strong>Assistant Coach, Six Seasons</strong>Top 25 four times, with four All-Americans and an NCAA finalist</span></div>
       </div>
+
+      <h3 class="list-title">Education</h3>
+      <div class="resume-list">
+        <div class="resume-row"><span class="yr">Cornell</span><span class="what"><strong>Postgraduate Certificate in Performance Leadership</strong>2023</span></div>
+        <div class="resume-row"><span class="yr">Nova Southeastern</span><span class="what"><strong>MBA</strong>2009</span></div>
+        <div class="resume-row"><span class="yr">Chattanooga</span><span class="what"><strong>Sociology and Anthropology</strong>2005</span></div>
+      </div>
+
+      <p class="family">Jon and his wife, Michele, live in San Luis Obispo with their son, Braden.</p>
     </div>
   </div>
 </section>
 
-<section class="book" id="book">
+<section class="book" id="book" aria-labelledby="book-title">
   <div class="wrap book-grid">
     <div class="book-side">
       <p class="eyebrow">Get on the Calendar</p>
-      <h2>Bring Jon to Your Room</h2>
+      <h2 id="book-title">Bring Jon to<br>Your Room</h2>
       <p>Dates fill around the college season. Tell us what you are building and we will follow up within 48 hours with availability and options.</p>
       <ul class="points">
-        <li>Youth clubs, high school programs, and RTCs</li>
-        <li>Single day clinics through multi day camps</li>
-        <li>Keynotes, banquets, and team culture talks</li>
-        <li>Travel nationwide from the Central Coast of California</li>
+        <li>Youth clubs, high school programs and RTCs</li>
+        <li>Single-day clinics through multi-day camps</li>
+        <li>Keynotes, banquets and coaches' sessions</li>
+        <li>Travel nationwide from California's Central Coast</li>
       </ul>
+      <div class="book-note">
+        <strong>Parents of young wrestlers</strong>
+        <p>Looking for summer camp? <a href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">Mustang Wrestling Camp</a> has dates and registration details.</p>
+      </div>
     </div>
     <!-- SETUP: create a free form at formspree.io, then replace YOUR_FORM_ID below -->
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <div class="f-row">
-        <div class="f-group"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
-        <div class="f-group"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
-      </div>
-      <div class="f-row">
-        <div class="f-group"><label for="phone">Phone</label><input id="phone" name="phone" type="tel"></div>
-        <div class="f-group"><label for="org">School / Club / Organization</label><input id="org" name="organization" type="text"></div>
-      </div>
+      <p class="form-title">Send an Inquiry</p>
+      <input type="hidden" name="_subject" value="New inquiry from jonsioredas.com">
+      <div class="hp" aria-hidden="true"><label for="gotcha">Leave this empty</label><input id="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="f-row">
         <div class="f-group">
-          <label for="type">What are you booking?</label>
+          <label for="role">I am a</label>
+          <select id="role" name="role" required>
+            <option value="">Select one</option>
+            <option>High school or club coach</option>
+            <option>Athletic director or administrator</option>
+            <option>Event or conference organizer</option>
+            <option>Parent or athlete</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label for="type">Interested in</label>
           <select id="type" name="event_type" required>
             <option value="">Select one</option>
-            <option>Camp or clinic at our location</option>
+            <option>Clinic or camp at our location</option>
             <option>Speaking engagement</option>
-            <option>Program consulting</option>
-            <option>Mustang Wrestling Camp question</option>
+            <option>Mustang Wrestling Camp</option>
             <option>Something else</option>
           </select>
         </div>
-        <div class="f-group"><label for="dates">Preferred Dates</label><input id="dates" name="preferred_dates" type="text" placeholder="e.g. June 2027, flexible"></div>
       </div>
+      <div class="f-row">
+        <div class="f-group"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div class="f-group"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="f-group"><label for="org">School, Club or Organization</label><input id="org" name="organization" type="text" autocomplete="organization"></div>
+      </div>
+      <div class="f-group"><label for="dates">Preferred Dates</label><input id="dates" name="preferred_dates" type="text" placeholder="e.g. June 2027, flexible"></div>
       <div class="f-group"><label for="msg">Tell us about your group</label><textarea id="msg" name="message" placeholder="Ages, levels, number of athletes, goals for the event, budget range if known"></textarea></div>
       <button class="btn btn-gold" type="submit">Send Inquiry</button>
       <p class="form-note">Your info goes straight to Jon. No lists, no spam.</p>
@@ -326,18 +777,97 @@ footer .wordmark{font-size:1.3rem}
   </div>
 </section>
 
-<footer>
-  <div class="wrap foot-inner">
-    <a class="wordmark" href="#top">JON <span>SIOREDAS</span></a>
-    <ul class="foot-links">
-      <li><a href="#offers">Work With Jon</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#book">Book</a></li>
-      <li><a href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">Mustang Wrestling Camp</a></li>
-    </ul>
-    <span>© 2026 Jon Sioredas. All rights reserved.</span>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a class="wordmark" href="#top">JON <span>SIOREDAS</span></a>
+      <p>Head Wrestling Coach, Cal Poly<br>President, National Wrestling Coaches Association</p>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <ul>
+        <li><a href="#record">The Record</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#work">Work With Jon</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#book">Book Jon</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://gopoly.com/sports/wrestling" target="_blank" rel="noopener">Cal Poly Wrestling</a></li>
+        <li><a href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">Mustang Wrestling Camp</a></li>
+        <li><a href="downloads/Jon-Sioredas-Bio.pdf" download>Download Bio (PDF)</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span data-year>2026</span> Jon Sioredas. All rights reserved.</span>
+    <span>San Luis Obispo, California</span>
   </div>
 </footer>
+
+<script>
+(function () {
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.querySelector('.nav');
+  var heroImg = document.querySelector('.hero-img');
+
+  // Solid nav once you leave the hero, plus the subtle hero parallax
+  // (image moves at a quarter of scroll speed, capped at 40px).
+  var ticking = false;
+  var onScroll = function () {
+    var y = window.scrollY;
+    nav.classList.toggle('is-scrolled', y > 24);
+    if (heroImg && !reducedMotion) {
+      heroImg.style.transform = 'translate3d(0,' + Math.min(y * 0.25, 40) + 'px,0)';
+    }
+    ticking = false;
+  };
+  window.addEventListener('scroll', function () {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  var toggle = document.querySelector('.nav-toggle');
+  var menu = document.getElementById('nav-menu');
+  var setMenu = function (open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle.addEventListener('click', function () {
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+
+  // Highlight the nav link for the section on screen
+  if ('IntersectionObserver' in window) {
+    var links = {};
+    menu.querySelectorAll('a[href^="#"]:not(.btn)').forEach(function (a) {
+      links[a.getAttribute('href').slice(1)] = a;
+    });
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = links[entry.target.id];
+        if (link) link.classList.toggle('is-active', entry.isIntersecting);
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(links).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+  }
+
+  var year = document.querySelector('[data-year]');
+  if (year) year.textContent = new Date().getFullYear();
+})();
+</script>
 
 </body>
 </html>
