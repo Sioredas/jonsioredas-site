@@ -8,7 +8,7 @@
 <meta name="description" content="Two-time Pac-12 Coach of the Year and President of the National Wrestling Coaches Association. Bring Cal Poly head wrestling coach Jon Sioredas to your program for clinics, camps and speaking engagements.">
 <meta name="theme-color" content="#0f3325">
 <!-- PREVIEW: keeps search engines from listing the draft. Remove this line at launch
-     (after real testimonials and a working form are in). -->
+     (after real testimonials are in). -->
 <meta name="robots" content="noindex">
 <!-- Hosted on GitHub Pages at jonsioredas.com (set by the CNAME file; DNS lives in Cloudflare,
      where sioredas.com redirects here). Jekyll skips folders starting with "_", so _source/ is not published. -->
@@ -325,6 +325,17 @@ textarea{min-height:124px;resize:vertical}
 form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 .form-note{margin-top:10px;text-align:center;font-size:.8rem;color:var(--ink-500)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+form .btn[disabled]{opacity:.75;cursor:wait}
+.form-status{margin:2px 0 12px;padding:12px 14px;border-radius:6px;background:#fbecea;color:#8c2415;font-size:.92rem;line-height:1.45}
+.form-status a{color:inherit;font-weight:600}
+.form-sent{display:none;padding:34px 8px 26px;text-align:center}
+.form-sent:focus{outline:none}
+.form-sent .form-title{margin-bottom:12px}
+.form-sent p:last-child{max-width:34ch;margin:0 auto;color:var(--ink-500)}
+.form-sent-mark{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:var(--green-800)}
+.form-sent-mark::after{content:'';width:22px;height:11px;margin-top:-5px;border-left:3px solid var(--gold-400);border-bottom:3px solid var(--gold-400);transform:rotate(-45deg)}
+.inquiry.is-sent > :not(.form-sent){display:none}
+.inquiry.is-sent .form-sent{display:block}
 
 /* ---------- Footer (matches the camp site) ---------- */
 .site-footer{padding:56px 0 28px;background:var(--green-900);color:var(--cream-200)}
@@ -741,8 +752,10 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 
     </div>
 
-    <!-- SAMPLE TESTIMONIALS: placeholders written to show what a strong testimonial looks like.
-         Before launch, replace each quote and the bracketed name and program with a real, approved quote. -->
+    <!-- SAMPLE TESTIMONIALS: placeholder quotes written to show what a strong testimonial looks like,
+         NOT from real people. Coach asked (2026-09-16) to hide the [Name] attribution lines for now.
+         Before launch, replace each quote with a real, approved one and add back its attribution below it, e.g.
+         <figcaption><strong>Name</strong><span>Head Wrestling Coach, School</span></figcaption> -->
     <div class="voices">
       <p class="eyebrow" data-reveal>In Their Words</p>
       <h3 data-reveal>What Hosts, Coaches &amp; Parents Say</h3>
@@ -750,17 +763,14 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
         <figure class="voice" data-reveal>
           <p class="eyebrow">Clinic Host</p>
           <blockquote><p>We have brought in a lot of clinicians. Jon is the first one our kids still quote. He ran our room like a Division I practice, knew every wrestler's name by lunch and left my staff with a system we still use every week.</p></blockquote>
-          <figcaption><strong>[Name]</strong><span>Head Wrestling Coach, [High School]</span></figcaption>
         </figure>
         <figure class="voice" data-reveal>
           <p class="eyebrow">Camp Parent</p>
           <blockquote><p>Our son went to Mustang Wrestling Camp hoping to get better on his feet. He came home talking about attitude and effort, setting his own alarm for morning runs and counting the days until next summer.</p></blockquote>
-          <figcaption><strong>[Name]</strong><span>Parent of a Mustang Wrestling Camp Wrestler</span></figcaption>
         </figure>
         <figure class="voice" data-reveal>
           <p class="eyebrow">Keynote Host</p>
           <blockquote><p>Jon closed our coaches' banquet with no notes and no filler, and the room was locked in the whole time. Our coaches used what he taught the very next morning. We asked him back before he reached the parking lot.</p></blockquote>
-          <figcaption><strong>[Name]</strong><span>Athletic Director, [School]</span></figcaption>
         </figure>
       </div>
     </div>
@@ -824,10 +834,11 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
         <p>Looking for summer camp? <a href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">Mustang Wrestling Camp</a> has dates and registration details.</p>
       </div>
     </div>
-    <!-- SETUP: create a free form at formspree.io, then replace YOUR_FORM_ID below -->
-    <form data-reveal action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <!-- Submissions go to the jonsioredas-forms Cloudflare Worker (Desktop/Claude Code/jonsioredas-forms,
+         repo Sioredas/jonsioredas-forms), which emails every field to jsioreda@calpoly.edu.
+         Field names here must match FIELDS in that Worker's src/index.js. -->
+    <form class="inquiry" data-reveal action="https://forms.jonsioredas.com/inquiry" method="POST">
       <p class="form-title">Send an Inquiry</p>
-      <input type="hidden" name="_subject" value="New inquiry from jonsioredas.com">
       <div class="hp" aria-hidden="true"><label for="gotcha">Leave this empty</label><input id="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="f-row">
         <div class="f-group">
@@ -862,8 +873,14 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
       </div>
       <div class="f-group"><label for="dates">Preferred dates</label><input id="dates" name="preferred_dates" type="text" placeholder="e.g. June 2027, flexible"></div>
       <div class="f-group"><label for="msg">Tell us about your group</label><textarea id="msg" name="message" placeholder="Ages, levels, number of athletes, goals for the event, budget range if known"></textarea></div>
+      <p class="form-status" role="alert" hidden></p>
       <button class="btn btn-primary btn-block" type="submit">Send Inquiry</button>
       <p class="form-note">Your info goes straight to Jon. No lists, no spam.</p>
+      <div class="form-sent" tabindex="-1">
+        <span class="form-sent-mark" aria-hidden="true"></span>
+        <p class="form-title">Inquiry Sent</p>
+        <p>Thanks for reaching out. Jon will follow up within 48 hours with availability and options.</p>
+      </div>
     </form>
   </div>
 </section>
@@ -1032,6 +1049,58 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
     Object.keys(links).forEach(function (id) {
       var el = document.getElementById(id);
       if (el) spy.observe(el);
+    });
+  }
+
+  // Booking inquiry: send it in the background and swap in a thank-you note.
+  // Without JavaScript the form still posts normally and the Worker answers with a simple result page.
+  var inquiry = document.querySelector('form.inquiry');
+  if (inquiry && window.fetch && window.FormData) {
+    var submitBtn = inquiry.querySelector('button[type="submit"]');
+    var statusEl = inquiry.querySelector('.form-status');
+    var sentEl = inquiry.querySelector('.form-sent');
+    var showError = function (message, offerEmail) {
+      statusEl.textContent = message || 'Sorry, your inquiry did not go through. Please try again in a few minutes.';
+      if (offerEmail) {
+        var address = ['jsioreda', 'calpoly.edu'].join('@');
+        var mail = document.createElement('a');
+        mail.href = 'mailto:' + address;
+        mail.textContent = address;
+        statusEl.appendChild(document.createTextNode(' You can also email Jon at '));
+        statusEl.appendChild(mail);
+        statusEl.appendChild(document.createTextNode('.'));
+      }
+      statusEl.hidden = false;
+    };
+    inquiry.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (submitBtn.disabled) return;
+      var label = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      statusEl.hidden = true;
+      fetch(inquiry.action, { method: 'POST', body: new FormData(inquiry), headers: { Accept: 'application/json' } })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            if (res.ok && data.ok) return;
+            var err = new Error(data.message || '');
+            err.offerEmail = res.status !== 400; // a 400 means a field needs fixing; anything else is our problem
+            throw err;
+          });
+        })
+        .then(function () {
+          inquiry.reset();
+          inquiry.classList.add('is-sent');
+          sentEl.focus();
+        })
+        .catch(function (err) {
+          var fromServer = err && typeof err.offerEmail === 'boolean';
+          showError(fromServer ? err.message : '', fromServer ? err.offerEmail : true);
+        })
+        .then(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = label;
+        });
     });
   }
 
