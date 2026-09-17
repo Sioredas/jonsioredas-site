@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
 <title>Jon Sioredas | Cal Poly Head Wrestling Coach · Camps, Clinics &amp; Speaking</title>
 <meta name="description" content="Two-time Pac-12 Coach of the Year and President of the National Wrestling Coaches Association. Bring Cal Poly head wrestling coach Jon Sioredas to your program for clinics, camps and speaking engagements.">
 <meta name="theme-color" content="#0f3325">
@@ -69,14 +70,18 @@
   --shadow-sm:0 1px 3px rgba(21,71,52,.12);
   --shadow-md:0 8px 24px rgba(21,71,52,.16);
   --nav-h:72px;
+  --ease:cubic-bezier(.2,.7,.1,1);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
+  .js [data-reveal],.js .reveal-load,.js .hero h1 .line > *{opacity:1!important;transform:none!important}
+  .js .timeline::before{transform:none!important}
+  .js .philo-photo img{transform:scale(1.12)!important}
 }
-body{font-family:var(--font-body);background:var(--cream-100);color:var(--ink-900);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);background:var(--cream-100);color:var(--ink-900);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit}
 ul,ol{list-style:none}
@@ -150,7 +155,7 @@ section{padding:clamp(72px,9vw,112px) 0;position:relative}
 
 /* ---------- Stat band ---------- */
 .scoreboard{position:relative;z-index:2;background:var(--green-800);color:var(--cream-200)}
-.score-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding-top:44px;padding-bottom:44px;text-align:center}
+.score-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding-top:44px;padding-bottom:66px;text-align:center}
 .score-num{display:block;margin-bottom:10px;font-family:var(--font-head);font-weight:400;font-size:clamp(2.6rem,5vw,3.4rem);line-height:1;color:var(--gold-400)}
 .score-label{display:block;font-size:1rem;line-height:1.4;color:var(--cream-200)}
 
@@ -328,6 +333,36 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-top:24px;font-size:.8rem;color:rgba(228,227,211,.7)}
 .footer-disclaimer{max-width:720px;line-height:1.5}
 
+/* ---------- Motion (same system as the Central Coast RTC site; add ?noanim to the URL to turn it off) ---------- */
+.pulse-dot{position:relative;display:inline-block;width:8px;height:8px;margin:0 12px 0 2px;border-radius:50%;background:var(--gold-400);vertical-align:.12em}
+.pulse-dot::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--gold-400);animation:ping 2.4s var(--ease) infinite}
+@keyframes ping{0%{transform:scale(.4);opacity:1}100%{transform:scale(1.4);opacity:0}}
+.hero h1 .line{display:block;overflow:hidden;padding:.08em .1em .02em 0;margin:-.08em 0 -.02em}
+.hero h1 .line > *{display:inline-block}
+.js .hero h1 .line > *{transform:translateY(110%);animation:rise 1.1s var(--ease) forwards;animation-delay:calc(var(--d) * 85ms + 120ms)}
+@keyframes rise{to{transform:none}}
+.js .reveal-load{opacity:0;transform:translateY(18px);animation:fadeUp 1s var(--ease) forwards;animation-delay:calc(var(--d) * 85ms + 200ms)}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.ticker-wrap{position:relative;z-index:3;overflow:hidden;overflow:clip;margin:-40px 0 -52px;padding:22px 0 34px;pointer-events:none}
+.ticker{position:relative;overflow:hidden;padding:15px 0;background:var(--gold-400);color:var(--green-900);transform:rotate(-1.2deg) scale(1.03);box-shadow:0 22px 50px -22px rgba(0,0,0,.4)}
+.ticker__track{display:flex;align-items:center;width:max-content;animation:marquee 55s linear infinite}
+.ticker span{flex:none;margin-right:26px;white-space:nowrap;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.06em;font-size:1.4rem;line-height:1}
+.ticker i{flex:none;width:7px;height:7px;margin-right:26px;border-radius:50%;background:var(--green-900);opacity:.55}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.mat-mark{animation:spin 140s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.js .timeline::before{transform:scaleX(0);transform-origin:left;transition:transform 1.8s var(--ease) .1s}
+.js .timeline.is-drawn::before{transform:none}
+.timeline li.is-now::after{content:'';position:absolute;top:-5px;left:-6px;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gold-400);animation:ping 2.4s var(--ease) infinite;pointer-events:none}
+.js .philo-photo img{transform:scale(1.24);transition:transform 2s var(--ease)}
+.js .philo-photo.is-drawn img{transform:scale(1.12)}
+.js [data-reveal]{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--rd,0ms)}
+.js [data-reveal].is-in{opacity:1;transform:none}
+.no-anim *,.no-anim *::before,.no-anim *::after{animation:none!important;transition:none!important}
+.no-anim [data-reveal],.no-anim .reveal-load,.no-anim .hero h1 .line > *{opacity:1!important;transform:none!important}
+.no-anim .timeline::before{transform:none!important}
+.no-anim .philo-photo img{transform:scale(1.12)!important}
+
 /* ---------- Responsive ---------- */
 @media (max-width:1100px){
   .nav-menu{gap:20px}
@@ -348,7 +383,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   .nav-menu .btn{width:100%}
   .hero-img{background-image:url('images/web/hero-1100.jpg');background-position:45% 18%}
   .hero-img::after{background:linear-gradient(180deg,rgba(15,51,37,.5) 0%,rgba(15,51,37,.78) 45%,rgba(15,51,37,.95) 100%)}
-  .score-inner{grid-template-columns:1fr 1fr;row-gap:34px}
+  .score-inner{grid-template-columns:1fr 1fr;row-gap:34px;padding-bottom:80px}
   .split-head,.record-head,.book-grid,.about-grid{grid-template-columns:1fr}
   .path-grid{grid-template-columns:1fr;max-width:600px}
   .season{grid-template-columns:1fr}
@@ -366,7 +401,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 }
 @media (max-width:640px){
   body{font-size:16.5px}
-  .wrap{padding:0 20px}
+  .wrap{padding-left:20px;padding-right:20px}
   .brand-text{font-size:1.25rem}
   .creds{font-size:1.02rem}
   .hero-ctas .btn{flex:1 1 100%}
@@ -374,6 +409,11 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   .timeline::before{display:block;left:7px;right:auto;top:10px;bottom:34px;width:2px;height:auto;background:linear-gradient(180deg,rgba(242,199,92,.2),var(--gold-400))}
   .timeline li{padding:0 0 30px}
   .timeline li::before{left:-30px;top:10px}
+  .timeline li.is-now::after{top:4px;left:-36px}
+  .js .timeline::before{transform:scaleY(0);transform-origin:top}
+  .js .timeline.is-drawn::before{transform:none}
+  .ticker span{font-size:1.15rem;margin-right:20px}
+  .ticker i{margin-right:20px}
   .t-year{font-size:2.1rem}
   .season-head{padding:32px 24px}
   .season-stats{grid-template-columns:1fr}
@@ -395,6 +435,8 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 @media print{
   .site-header,.skip,.hero-img,.hero::after,.hero-ctas,.paths,.mat-mark,.philo-photo,.camp-cta,.card-img,.process,.book form,.book-note,.btn{display:none!important}
   body{background:#fff;color:#000;font-size:10.5pt}
+  .ticker-wrap{display:none!important}
+  .js [data-reveal],.js .reveal-load,.js .hero h1 .line > *{opacity:1!important;transform:none!important;animation:none!important}
   section,.hero{padding:18pt 0!important}
   .hero,.scoreboard,.record,.philosophy,.about,.glance,.offers,.book,.site-footer{background:#fff!important}
   .hero *,.scoreboard *,.record *,.philosophy *,.about *,.site-footer *,h2,h3{color:#000!important}
@@ -429,14 +471,14 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   <div class="hero-img" role="img" aria-label="Jon Sioredas coaching mat side in front of a packed home crowd"></div>
   <div class="wrap">
     <div class="hero-inner">
-      <p class="eyebrow">Head Wrestling Coach · Cal Poly</p>
-      <h1>Jon<br><em>Sioredas</em></h1>
-      <ul class="creds">
+      <p class="eyebrow reveal-load" style="--d:0"><span class="pulse-dot" aria-hidden="true"></span>Head Wrestling Coach · Cal Poly</p>
+      <h1><span class="line"><span style="--d:1">Jon</span></span><span class="line"><em style="--d:2">Sioredas</em></span></h1>
+      <ul class="creds reveal-load" style="--d:3">
         <li>Two-Time Pac-12 Coach of the Year</li>
         <li>President, National Wrestling Coaches Association</li>
       </ul>
-      <p class="lede">He took over a program that had just finished last in the Pac-12 and built it into a national Top 25 fixture. Now he brings that standard to your athletes, your coaches and your program.</p>
-      <div class="hero-ctas">
+      <p class="lede reveal-load" style="--d:4">He took over a program that had just finished last in the Pac-12 and built it into a national Top 25 fixture. Now he brings that standard to your athletes, your coaches and your program.</p>
+      <div class="hero-ctas reveal-load" style="--d:5">
         <a class="btn btn-primary" href="#book">Book a Camp or Clinic</a>
         <a class="btn btn-outline" href="#record">See the Record</a>
       </div>
@@ -448,38 +490,42 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 
 <div class="scoreboard" aria-label="Career highlights">
   <ul class="wrap score-inner">
-    <li><span class="score-num">2×</span><span class="score-label">Pac-12 Coach of the Year</span></li>
-    <li><span class="score-num">6</span><span class="score-label">Straight seasons in the national Top 25</span></li>
-    <li><span class="score-num">70</span><span class="score-label">NCAA qualifiers coached</span></li>
-    <li><span class="score-num">24</span><span class="score-label">Academic All-Americans coached</span></li>
+    <li data-reveal><span class="score-num">2×</span><span class="score-label">Pac-12 Coach of the Year</span></li>
+    <li data-reveal><span class="score-num">6</span><span class="score-label">Straight seasons in the national Top 25</span></li>
+    <li data-reveal><span class="score-num">70</span><span class="score-label">NCAA qualifiers coached</span></li>
+    <li data-reveal><span class="score-num">24</span><span class="score-label">Academic All-Americans coached</span></li>
   </ul>
 </div>
+
+<div class="ticker-wrap" aria-hidden="true"><div class="ticker">
+  <div class="ticker__track"><span>Two-Time Pac-12 Coach of the Year</span><i></i><span>President, National Wrestling Coaches Association</span><i></i><span>NCAA Division I Men's Wrestling Rules Subcommittee</span><i></i><span>Six Straight Seasons in the National Top 25</span><i></i><span>Record Fundraising in 2025-26</span><i></i><span>NCAA All-American</span><i></i><span>UTC Athletics Hall of Fame</span><i></i><span>Two-Time Pac-12 Coach of the Year</span><i></i><span>President, National Wrestling Coaches Association</span><i></i><span>NCAA Division I Men's Wrestling Rules Subcommittee</span><i></i><span>Six Straight Seasons in the National Top 25</span><i></i><span>Record Fundraising in 2025-26</span><i></i><span>NCAA All-American</span><i></i><span>UTC Athletics Hall of Fame</span><i></i></div>
+</div></div>
 
 <section class="paths" aria-labelledby="paths-title">
   <div class="wrap">
     <div class="split-head">
-      <div>
+      <div data-reveal>
         <p class="eyebrow">Start Here</p>
         <h2 id="paths-title">One Standard.<br>Every Room.</h2>
       </div>
-      <p>Whether you run a club, lead an organization or are trusting a coach with your wrestler, the standard is the same: set it high, then live it every day.</p>
+      <p data-reveal>Whether you run a club, lead an organization or are trusting a coach with your wrestler, the standard is the same: set it high, then live it every day.</p>
     </div>
     <div class="path-grid">
-      <a class="path" href="#work">
+      <a class="path" data-reveal href="#work">
         <span class="path-num" aria-hidden="true">01</span>
         <p class="eyebrow">Coaches &amp; Clubs</p>
         <h3>Bring a Division I Practice to Your Mat</h3>
         <p>Clinics, camps and keynotes for high school and club programs across the country.</p>
         <span class="path-link">Work With Jon</span>
       </a>
-      <a class="path" href="#philosophy">
+      <a class="path" data-reveal href="#philosophy">
         <span class="path-num" aria-hidden="true">02</span>
         <p class="eyebrow">Parents &amp; Athletes</p>
         <h3>Remarkable Men for Life After Wrestling</h3>
         <p>The core values, the classroom results and the summer camp where young wrestlers train at Cal Poly.</p>
         <span class="path-link">The Philosophy</span>
       </a>
-      <a class="path" href="#record">
+      <a class="path" data-reveal href="#record">
         <span class="path-num" aria-hidden="true">03</span>
         <p class="eyebrow">Leaders &amp; Organizations</p>
         <h3>Last Place to the National Top 25</h3>
@@ -494,37 +540,37 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   <svg class="mat-mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><g fill="none" stroke="#f2c75c"><circle cx="200" cy="200" r="190" stroke-width="3"/><circle cx="200" cy="200" r="150" stroke-width="1"/><circle cx="200" cy="200" r="68" stroke-width="3"/><path d="M188 193h24M188 207h24" stroke-width="3"/></g></svg>
   <div class="wrap">
     <div class="record-head">
-      <div>
+      <div data-reveal>
         <p class="eyebrow">The Record</p>
         <h2 id="record-title">Last Place<br>to <em>Top 25</em></h2>
       </div>
-      <div class="record-intro">
+      <div class="record-intro" data-reveal>
         <p>When Jon arrived in San Luis Obispo before the 2016-17 season, Cal Poly had just finished last in the Pac-12 and had no NCAA qualifiers. On his first day he wrote down a single goal: a Top 25 program within five years.</p>
         <p>The Mustangs lost every dual in his second and third seasons. Instead of chasing quick fixes, he rebuilt the foundation: launching the Mustang Wrestling Foundation, overhauling fundraising and anchoring the program to a set of core values.</p>
       </div>
     </div>
 
-    <ol class="timeline">
-      <li><span class="t-year">2016</span><span class="t-title">Day One</span><span class="t-text">Last in the Pac-12. No NCAA qualifiers. One goal: Top 25 in five years.</span></li>
-      <li><span class="t-year">2018</span><span class="t-title">The Foundation</span><span class="t-text">The Mustang Wrestling Foundation launches and the rebuild takes root.</span></li>
-      <li><span class="t-year">2021</span><span class="t-title">Goal Reached</span><span class="t-text">25th in the nation. The Mustangs have not left the Top 25 since.</span></li>
-      <li><span class="t-year">2022</span><span class="t-title">Top 10</span><span class="t-text">Into the national top 10 for the first time in 39 years.</span></li>
-      <li><span class="t-year">2023</span><span class="t-title">Conference Champions</span><span class="t-text">A 5-0 run to the first Pac-12 dual title in program history and Pac-12 Coach of the Year.</span></li>
-      <li><span class="t-year">2025</span><span class="t-title">NCAA Podium</span><span class="t-text">Third place at the NCAA Championships at 133 pounds and a Top 15 national ranking.</span></li>
-      <li class="is-now"><span class="t-year">2026</span><span class="t-title">Record Season</span><span class="t-text">Three Pac-12 champions, a second Coach of the Year award and the NWCA presidency.</span></li>
+    <ol class="timeline" data-draw>
+      <li data-reveal><span class="t-year">2016</span><span class="t-title">Day One</span><span class="t-text">Last in the Pac-12. No NCAA qualifiers. One goal: Top 25 in five years.</span></li>
+      <li data-reveal><span class="t-year">2018</span><span class="t-title">The Foundation</span><span class="t-text">The Mustang Wrestling Foundation launches and the rebuild takes root.</span></li>
+      <li data-reveal><span class="t-year">2021</span><span class="t-title">Goal Reached</span><span class="t-text">25th in the nation. The Mustangs have not left the Top 25 since.</span></li>
+      <li data-reveal><span class="t-year">2022</span><span class="t-title">Top 10</span><span class="t-text">Into the national top 10 for the first time in 39 years.</span></li>
+      <li data-reveal><span class="t-year">2023</span><span class="t-title">Conference Champions</span><span class="t-text">A 5-0 run to the first Pac-12 dual title in program history and Pac-12 Coach of the Year.</span></li>
+      <li data-reveal><span class="t-year">2025</span><span class="t-title">NCAA Podium</span><span class="t-text">Third place at the NCAA Championships at 133 pounds and a Top 15 national ranking.</span></li>
+      <li class="is-now" data-reveal><span class="t-year">2026</span><span class="t-title">Record Season</span><span class="t-text">Three Pac-12 champions, a second Coach of the Year award and the NWCA presidency.</span></li>
     </ol>
 
-    <div class="season">
+    <div class="season" data-reveal>
       <div class="season-head">
         <p class="season-kicker">2025-26</p>
         <h3>The Most Decorated Season of the Modern Era</h3>
         <p>And all of it after losing a 2025 All-American to a season-ending injury in December.</p>
       </div>
       <ul class="season-stats">
-        <li><span class="s-num">3</span><span class="s-label">Pac-12 champions, a program record, crowned on Cal Poly's home mat</span></li>
-        <li><span class="s-num">4th</span><span class="s-label">At the Ken Kraft Midlands Championships, a program best with a record six placers</span></li>
-        <li><span class="s-num">6</span><span class="s-label">NWCA Scholar All-Americans, a program record</span></li>
-        <li><span class="s-num">4</span><span class="s-label">NCAA qualifiers for the fifth straight season, a run matched only once in program history</span></li>
+        <li data-reveal><span class="s-num">3</span><span class="s-label">Pac-12 champions, a program record, crowned on Cal Poly's home mat</span></li>
+        <li data-reveal><span class="s-num">4th</span><span class="s-label">At the Ken Kraft Midlands Championships, a program best with a record six placers</span></li>
+        <li data-reveal><span class="s-num">6</span><span class="s-label">NWCA Scholar All-Americans, a program record</span></li>
+        <li data-reveal><span class="s-num">4</span><span class="s-label">NCAA qualifiers for the fifth straight season, a run matched only once in program history</span></li>
       </ul>
     </div>
   </div>
@@ -532,14 +578,14 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 
 <section class="glance" id="glance" aria-labelledby="glance-title">
   <div class="wrap glance-grid">
-    <div class="glance-side">
+    <div class="glance-side" data-reveal>
       <p class="eyebrow">At a Glance</p>
       <h2 id="glance-title">Built the<br>Right Way</h2>
       <p>Winning is one line on the résumé. The program Jon built also sets records in the classroom, raises more private support than at any point in its 78-year history and gives Cal Poly a seat at the head of the table as college wrestling navigates a period of unprecedented change.</p>
       <a class="btn btn-primary" href="downloads/Jon-Sioredas-Bio.pdf" download>Download the Full Bio <span class="arrow" aria-hidden="true">→</span></a>
     </div>
     <div class="pillars">
-      <article class="pillar">
+      <article class="pillar" data-reveal>
         <h3>National Leadership</h3>
         <ul>
           <li><strong>President</strong>, National Wrestling Coaches Association (2026-28)</li>
@@ -548,7 +594,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
           <li>Panelist, NWCA National Convention</li>
         </ul>
       </article>
-      <article class="pillar">
+      <article class="pillar" data-reveal>
         <h3>On the Mat</h3>
         <ul>
           <li><strong>Pac-12 Coach of the Year</strong> in 2023 and 2026, the only coach in program history to earn it</li>
@@ -557,7 +603,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
           <li>First Pac-12 dual title in program history (2023)</li>
         </ul>
       </article>
-      <article class="pillar">
+      <article class="pillar" data-reveal>
         <h3>In the Classroom</h3>
         <ul>
           <li><strong>Program-record six</strong> NWCA Scholar All-Americans (2026)</li>
@@ -566,7 +612,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
           <li>NCAA APR top 10 nationally (2017-19) and a perfect APR (2023)</li>
         </ul>
       </article>
-      <article class="pillar">
+      <article class="pillar" data-reveal>
         <h3>Recruiting</h3>
         <ul>
           <li><strong>Eleven Top 100 recruits</strong> (2019-26)</li>
@@ -575,7 +621,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
           <li>Seven Top 25 recruiting classes across his career</li>
         </ul>
       </article>
-      <article class="pillar">
+      <article class="pillar" data-reveal>
         <h3>Fundraising</h3>
         <ul>
           <li><strong>Record fundraising</strong> in 2025-26, up 20 percent year over year</li>
@@ -583,7 +629,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
           <li>Mustang Wrestling Foundation partnership (est. 2018) funding staff, scholarships, revenue sharing, operations and the Central Coast RTC</li>
         </ul>
       </article>
-      <article class="pillar">
+      <article class="pillar" data-reveal>
         <h3>Program Leadership</h3>
         <ul>
           <li><strong>Contract extended</strong> through 2029-30</li>
@@ -598,19 +644,19 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 
 <section class="philosophy on-dark" id="philosophy" aria-labelledby="philosophy-title">
   <div class="philo-grid">
-    <figure class="philo-photo">
+    <figure class="philo-photo" data-draw>
       <img src="images/web/ncaa-embrace.jpg" alt="Jon Sioredas embracing a Cal Poly wrestler at the NCAA Championships" width="1100" height="734" loading="lazy" decoding="async">
       <figcaption>Photo: Tony Rotundo / WrestlersAreWarriors.com</figcaption>
     </figure>
     <div class="philo-copy">
-      <p class="eyebrow">The Philosophy</p>
-      <h2 id="philosophy-title">Purpose<br>Over Outcome</h2>
-      <blockquote class="quote">
+      <p class="eyebrow" data-reveal>The Philosophy</p>
+      <h2 id="philosophy-title" data-reveal>Purpose<br>Over Outcome</h2>
+      <blockquote class="quote" data-reveal>
         <p>“Our purpose is to create remarkable men for life after wrestling. Winning wrestling matches is the secondary benefit.”</p>
         <cite>Jon Sioredas</cite>
       </blockquote>
-      <p>Every Mustang is measured against four core values, and the standard is the same for the staff. Jon lifts and trains alongside his athletes, meets with his student-athlete leadership group every week and has built mental-performance training into the program.</p>
-      <ol class="values" aria-label="Core values">
+      <p data-reveal>Every Mustang is measured against four core values, and the standard is the same for the staff. Jon lifts and trains alongside his athletes, meets with his student-athlete leadership group every week and has built mental-performance training into the program.</p>
+      <ol class="values" aria-label="Core values" data-reveal>
         <li><span>01</span>Attitude</li>
         <li><span>02</span>Effort</li>
         <li><span>03</span>Growth</li>
@@ -620,13 +666,13 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   </div>
 
   <div class="wrap philo-after">
-    <div class="panel">
+    <div class="panel" data-reveal>
       <p class="eyebrow">In the Classroom</p>
       <span class="big-num">3.5+</span>
       <p>GPA or better for half the roster in winter 2026.</p>
       <p class="fine">Plus the highest team GPA in program history in 2025-26 and a program-record six NWCA Scholar All-Americans.</p>
     </div>
-    <div class="panel panel-story">
+    <div class="panel panel-story" data-reveal>
       <p class="eyebrow">The Template</p>
       <h3>From Walk-On to Two-Time Champion</h3>
       <p>Trevor Tinker was a lightly recruited walk-on who joined the room as a practice partner. He left Cal Poly as the first two-time Pac-12 heavyweight champion in program history, a four-time NCAA qualifier, a three-time Scholar All-American and with a postgraduate certificate in fire protection engineering.</p>
@@ -636,7 +682,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
         <li><b>3×</b>Scholar All-American</li>
       </ul>
     </div>
-    <div class="camp-cta">
+    <div class="camp-cta" data-reveal>
       <p class="eyebrow">For Young Wrestlers</p>
       <h3>Mustang Wrestling Camp</h3>
       <p>Hundreds of young wrestlers train in San Luis Obispo each summer at the camp Jon directs on the Cal Poly campus.</p>
@@ -648,14 +694,14 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 <section class="offers" id="work" aria-labelledby="work-title">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Work With Jon</p>
-      <h2 id="work-title">Raise the Standard</h2>
+      <p class="eyebrow" data-reveal>Work With Jon</p>
+      <h2 id="work-title" data-reveal>Raise the Standard</h2>
       <!-- TODO: revisit this headline + eyebrow copy, tighten up later -->
-      <p>Every engagement is built around one idea: raise the standard in the room and leave your athletes and coaches with tools they will actually use.</p>
+      <p data-reveal>Every engagement is built around one idea: raise the standard in the room and leave your athletes and coaches with tools they will actually use.</p>
     </div>
     <div class="offer-grid">
 
-      <a class="card" href="#book" id="camps">
+      <a class="card" data-reveal href="#book" id="camps">
         <div class="card-img"><img src="images/web/camps-clinics.jpg" alt="Jon Sioredas pumping both fists, celebrating with his team" width="1200" height="675" loading="lazy" decoding="async" style="object-position:center 20%"></div>
         <div class="card-body">
           <p class="eyebrow">High School &amp; Club Programs</p>
@@ -665,7 +711,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
         </div>
       </a>
 
-      <a class="card" href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">
+      <a class="card" data-reveal href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">
         <div class="card-img card-img-placeholder"><span>Photo coming soon</span></div>
         <div class="card-body">
           <p class="eyebrow">On Campus at Cal Poly</p>
@@ -675,7 +721,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
         </div>
       </a>
 
-      <a class="card" href="#book">
+      <a class="card" data-reveal href="#book">
         <div class="card-img"><img src="images/web/speaking-podium.jpg" alt="Jon Sioredas speaking at the podium for the Cal Poly Wrestling 75th Anniversary celebration" width="1100" height="1649" loading="lazy" decoding="async" style="object-position:center 42%;transform:scale(1.3) translateX(-6%)"></div>
         <div class="card-body">
           <p class="eyebrow">Teams, Events, Organizations</p>
@@ -690,20 +736,20 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
     <!-- SAMPLE TESTIMONIALS: placeholders written to show what a strong testimonial looks like.
          Before launch, replace each quote and the bracketed name and program with a real, approved quote. -->
     <div class="voices">
-      <p class="eyebrow">In Their Words</p>
-      <h3>What Hosts, Coaches &amp; Parents Say</h3>
+      <p class="eyebrow" data-reveal>In Their Words</p>
+      <h3 data-reveal>What Hosts, Coaches &amp; Parents Say</h3>
       <div class="voice-grid">
-        <figure class="voice">
+        <figure class="voice" data-reveal>
           <p class="eyebrow">Clinic Host</p>
           <blockquote><p>We have brought in a lot of clinicians. Jon is the first one our kids still quote. He ran our room like a Division I practice, knew every wrestler's name by lunch and left my staff with a system we still use every week.</p></blockquote>
           <figcaption><strong>[Name]</strong><span>Head Wrestling Coach, [High School]</span></figcaption>
         </figure>
-        <figure class="voice">
+        <figure class="voice" data-reveal>
           <p class="eyebrow">Camp Parent</p>
           <blockquote><p>Our son went to Mustang Wrestling Camp hoping to get better on his feet. He came home talking about attitude and effort, setting his own alarm for morning runs and counting the days until next summer.</p></blockquote>
           <figcaption><strong>[Name]</strong><span>Parent of a Mustang Wrestling Camp Wrestler</span></figcaption>
         </figure>
-        <figure class="voice">
+        <figure class="voice" data-reveal>
           <p class="eyebrow">Keynote Host</p>
           <blockquote><p>Jon closed our coaches' banquet with no notes and no filler, and the room was locked in the whole time. Our coaches used what he taught the very next morning. We asked him back before he reached the parking lot.</p></blockquote>
           <figcaption><strong>[Name]</strong><span>Athletic Director, [School]</span></figcaption>
@@ -711,7 +757,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
       </div>
     </div>
 
-    <div class="process">
+    <div class="process" data-reveal>
       <p class="process-title">How Booking Works</p>
       <ol class="steps">
         <li><span class="step-num">01</span><h4>Tell us about your group</h4><p>Ages, levels, numbers and what you are building toward.</p></li>
@@ -725,32 +771,32 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 
 <section class="about on-dark" id="about" aria-labelledby="about-title">
   <div class="wrap about-grid">
-    <div class="about-photo">
+    <div class="about-photo" data-reveal>
       <img src="images/web/headshot.jpg" alt="Jon Sioredas, head wrestling coach at Cal Poly" width="760" height="1139" loading="lazy" decoding="async">
     </div>
     <div class="about-copy">
-      <p class="eyebrow">About Jon</p>
-      <h2 id="about-title">A Competitor<br>First</h2>
-      <p class="about-lede">Before he built programs, Jon won at every level.</p>
-      <p>At Great Bridge High School in Chesapeake, Virginia, he was a state champion, national champion and All-American who went 181-13, the fourth-most wins in Virginia high school history. At Chattanooga he placed fifth at 165 pounds at the 2005 NCAA Championships to become an All-American, won two Southern Conference titles and was named SoCon Wrestler of the Year and tournament MVP. He was later inducted into the UTC Athletics Hall of Fame.</p>
-      <p>In 20 seasons of college coaching, 12 of them as a head coach, he has been part of 11 nationally ranked teams and has coached 10 NCAA All-Americans, 70 NCAA qualifiers and 24 Academic All-Americans, while recruiting seven Top 25 classes.</p>
+      <p class="eyebrow" data-reveal>About Jon</p>
+      <h2 id="about-title" data-reveal>A Competitor<br>First</h2>
+      <p class="about-lede" data-reveal>Before he built programs, Jon won at every level.</p>
+      <p data-reveal>At Great Bridge High School in Chesapeake, Virginia, he was a state champion, national champion and All-American who went 181-13, the fourth-most wins in Virginia high school history. At Chattanooga he placed fifth at 165 pounds at the 2005 NCAA Championships to become an All-American, won two Southern Conference titles and was named SoCon Wrestler of the Year and tournament MVP. He was later inducted into the UTC Athletics Hall of Fame.</p>
+      <p data-reveal>In 20 seasons of college coaching, 12 of them as a head coach, he has been part of 11 nationally ranked teams and has coached 10 NCAA All-Americans, 70 NCAA qualifiers and 24 Academic All-Americans, while recruiting seven Top 25 classes.</p>
 
-      <h3 class="list-title">Coaching Career</h3>
-      <div class="resume-list">
+      <h3 class="list-title" data-reveal>Coaching Career</h3>
+      <div class="resume-list" data-reveal>
         <div class="resume-row"><span class="yr">Cal Poly</span><span class="what"><strong>Head Coach, 2016–Present</strong>Two-time Pac-12 Coach of the Year and a national Top 25 program six straight seasons</span></div>
         <div class="resume-row"><span class="yr">Grand Canyon</span><span class="what"><strong>Head Coach</strong>Guided the move from Division II to Division I and signed a nationally ranked class with three Top 100 recruits in two seasons</span></div>
         <div class="resume-row"><span class="yr">Chattanooga</span><span class="what"><strong>Assistant Coach, Two Seasons</strong>A No. 19 national ranking and a sweep of the Southern Conference regular-season and tournament titles</span></div>
         <div class="resume-row"><span class="yr">Old Dominion</span><span class="what"><strong>Assistant Coach, Six Seasons</strong>Top 25 four times, with four All-Americans and an NCAA finalist</span></div>
       </div>
 
-      <h3 class="list-title">Education</h3>
-      <div class="resume-list">
+      <h3 class="list-title" data-reveal>Education</h3>
+      <div class="resume-list" data-reveal>
         <div class="resume-row"><span class="yr">Cornell</span><span class="what"><strong>Postgraduate Certificate in Performance Leadership</strong>2023</span></div>
         <div class="resume-row"><span class="yr">Nova Southeastern</span><span class="what"><strong>MBA</strong>2009</span></div>
         <div class="resume-row"><span class="yr">Chattanooga</span><span class="what"><strong>Sociology and Anthropology</strong>2005</span></div>
       </div>
 
-      <p class="family">Jon and his wife, Michele, live in San Luis Obispo with their son, Braden.</p>
+      <p class="family" data-reveal>Jon and his wife, Michele, live in San Luis Obispo with their son, Braden.</p>
     </div>
   </div>
 </section>
@@ -758,22 +804,22 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 <section class="book" id="book" aria-labelledby="book-title">
   <div class="wrap book-grid">
     <div class="book-side">
-      <p class="eyebrow">Get on the Calendar</p>
-      <h2 id="book-title">Bring Jon to<br>Your Room</h2>
-      <p>Dates fill around the college season. Tell us what you are building and we will follow up within 48 hours with availability and options.</p>
-      <ul class="points">
+      <p class="eyebrow" data-reveal>Get on the Calendar</p>
+      <h2 id="book-title" data-reveal>Bring Jon to<br>Your Room</h2>
+      <p data-reveal>Dates fill around the college season. Tell us what you are building and we will follow up within 48 hours with availability and options.</p>
+      <ul class="points" data-reveal>
         <li>Youth clubs, high school programs and RTCs</li>
         <li>Single-day clinics through multi-day camps</li>
         <li>Keynotes, banquets and coaches' sessions</li>
         <li>Travel nationwide from California's Central Coast</li>
       </ul>
-      <div class="book-note">
+      <div class="book-note" data-reveal>
         <strong>Parents of young wrestlers</strong>
         <p>Looking for summer camp? <a href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">Mustang Wrestling Camp</a> has dates and registration details.</p>
       </div>
     </div>
     <!-- SETUP: create a free form at formspree.io, then replace YOUR_FORM_ID below -->
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form data-reveal action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <p class="form-title">Send an Inquiry</p>
       <input type="hidden" name="_subject" value="New inquiry from jonsioredas.com">
       <div class="hp" aria-hidden="true"><label for="gotcha">Leave this empty</label><input id="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
@@ -856,7 +902,9 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 
 <script>
 (function () {
+  var root = document.documentElement;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (new URLSearchParams(location.search).has('noanim')) root.classList.add('no-anim'); // for screenshots / QA
   var header = document.querySelector('.site-header');
   var heroImg = document.querySelector('.hero-img');
 
@@ -875,6 +923,43 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
     if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
   }, { passive: true });
   onScroll();
+
+  // Scroll reveals, staggered among siblings (same pattern as the Central Coast RTC site).
+  // Once an element has animated in, its data-reveal attribute is removed so hover effects work normally.
+  var revealables = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  var drawables = [].slice.call(document.querySelectorAll('[data-draw]'));
+  revealables.forEach(function (el) {
+    var siblings = [].filter.call(el.parentElement.children, function (c) { return c.hasAttribute('data-reveal'); });
+    var index = siblings.indexOf(el);
+    if (index > 0) el.style.setProperty('--rd', Math.min(index, 8) * 70 + 'ms');
+  });
+  var settle = function (el) {
+    el.removeAttribute('data-reveal');
+    el.classList.remove('is-in');
+    el.style.removeProperty('--rd');
+  };
+  if ('IntersectionObserver' in window && !reducedMotion && !root.classList.contains('no-anim')) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        io.unobserve(el);
+        if (el.hasAttribute('data-draw')) { el.classList.add('is-drawn'); return; }
+        el.classList.add('is-in');
+        var fallback = setTimeout(function () { settle(el); }, 1300 + (parseInt(el.style.getPropertyValue('--rd'), 10) || 0));
+        el.addEventListener('transitionend', function onEnd(ev) {
+          if (ev.target !== el) return;
+          el.removeEventListener('transitionend', onEnd);
+          clearTimeout(fallback);
+          settle(el);
+        });
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+    revealables.concat(drawables).forEach(function (el) { io.observe(el); });
+  } else {
+    revealables.forEach(settle);
+    drawables.forEach(function (el) { el.classList.add('is-drawn'); });
+  }
 
   // Mobile menu
   var toggle = document.querySelector('.nav-toggle');
