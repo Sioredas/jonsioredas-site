@@ -336,6 +336,30 @@ form .btn[disabled]{opacity:.75;cursor:wait}
 .form-sent-mark::after{content:'';width:22px;height:11px;margin-top:-5px;border-left:3px solid var(--gold-400);border-bottom:3px solid var(--gold-400);transform:rotate(-45deg)}
 .inquiry.is-sent > :not(.form-sent){display:none}
 .inquiry.is-sent .form-sent{display:block}
+.form-sent-extra{margin-top:22px;padding-top:18px;border-top:1px solid var(--cream-200);font-size:.92rem}
+.form-sent-extra a{color:var(--green-800);font-weight:600}
+
+/* ---------- Hero secondary link and the calendar line ---------- */
+.hero-link{align-self:center;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.06em;font-size:1.1rem;color:var(--gold-400);text-decoration:none}
+.hero-link:hover{color:var(--gold-100)}
+.hero-note{margin-top:18px;font-size:.92rem;color:rgba(251,250,244,.78)}
+
+/* ---------- Inside the day, host coaches, host kit ---------- */
+.day{margin-top:clamp(56px,7vw,84px)}
+.day h3{margin:0 0 10px;font-size:clamp(1.9rem,3.2vw,2.6rem)}
+.day > p:not(.eyebrow){max-width:620px;color:var(--ink-500)}
+.day-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:30px}
+.day-list li{display:flex;flex-direction:column;gap:6px;padding:22px 22px 24px;background:#fff;border:1px solid rgba(21,71,52,.06);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.day-num{font-family:var(--font-head);font-size:1.5rem;line-height:1;color:var(--gold-500)}
+.day-list h4{font-family:var(--font-head);text-transform:uppercase;letter-spacing:.02em;font-size:1.3rem;line-height:1.05;color:var(--green-800)}
+.day-list p{font-size:.95rem;color:var(--ink-500)}
+.host{margin-top:clamp(48px,6vw,72px);padding:clamp(32px,4vw,44px);background:var(--green-800);border-radius:var(--radius);color:var(--cream-200)}
+.host .eyebrow{color:var(--gold-400)}
+.host h3{margin:0 0 12px;font-size:clamp(1.9rem,3.2vw,2.6rem);color:#fff}
+.host > p{max-width:640px;color:var(--cream-200)}
+.host-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px 34px;margin:28px 0 30px}
+.host-list li{padding-top:16px;border-top:1px solid var(--line-dark-soft);font-size:.98rem;line-height:1.5}
+.host-list strong{display:block;margin-bottom:4px;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.03em;font-size:1.25rem;font-weight:400;color:var(--gold-400)}
 
 /* ---------- Footer (matches the camp site) ---------- */
 .site-footer{padding:56px 0 28px;background:var(--green-900);color:var(--cream-200)}
@@ -503,8 +527,9 @@ form .btn[disabled]{opacity:.75;cursor:wait}
       <p class="lede reveal-load" style="--d:4">He took over a program that had just finished last in the NCAA and built it into a national Top 25 fixture. Now he brings that standard to your athletes, your coaches and your program.</p>
       <div class="hero-ctas reveal-load" style="--d:5">
         <a class="btn btn-primary" href="#book">Book a Camp or Clinic</a>
-        <a class="btn btn-outline" href="#turnaround">See the Turnaround</a>
+        <a class="hero-link" href="#turnaround">See the turnaround <span class="arrow" aria-hidden="true">→</span></a>
       </div>
+      <p class="hero-note reveal-load" style="--d:6">Summer dates are booked by spring. Jon takes 3 to 4 summer clinics a year.</p>
     </div>
   </div>
 </div>
@@ -724,9 +749,9 @@ form .btn[disabled]{opacity:.75;cursor:wait}
         <div class="card-img" data-wipe><img src="images/web/camps-clinics.jpg" alt="Jon Sioredas pumping both fists, celebrating with his team" width="1200" height="675" loading="lazy" decoding="async" style="object-position:center 20%"></div>
         <div class="card-body">
           <p class="eyebrow">High School &amp; Club Programs</p>
-          <h3>Camps &amp; Clinics on the Road</h3>
-          <p>A Division I practice brought to your mat. Technique blocks, live goes and culture talks built around your athletes, from youth clubs to high school programs building toward the next level.</p>
-          <span class="card-link">Request Dates</span>
+          <h3>A Day on Your Mat</h3>
+          <p>A Division I practice brought to your room. One day of technique, live goes and a culture talk built around your athletes, or two days when you want a full camp. Youth clubs through high school programs.</p>
+          <span class="card-link">Book a Camp or Clinic</span>
         </div>
       </a>
 
@@ -750,6 +775,32 @@ form .btn[disabled]{opacity:.75;cursor:wait}
         </div>
       </a>
 
+    </div>
+
+    <!-- The day and the host economics: added 2026-09-17 from the 5 Horsemen review (offer layer). -->
+    <div class="day">
+      <p class="eyebrow" data-reveal>Inside the Day</p>
+      <h3 data-reveal>What a Day on Your Mat Looks Like</h3>
+      <p data-reveal>Built with your staff before Jon ever gets on the plane, then run the way a Division I practice runs.</p>
+      <ol class="day-list">
+        <li data-reveal><span class="day-num">01</span><h4>The Standard, Set Early</h4><p>Jon opens with the whole room. What the day asks of them, and what the standard looks like when it is met.</p></li>
+        <li data-reveal><span class="day-num">02</span><h4>Technique Block</h4><p>Positions taught the way they are taught in a Division I room, with hands on correction from the first rep.</p></li>
+        <li data-reveal><span class="day-num">03</span><h4>Live Goes</h4><p>Wrestling with coaching on the spot, in front of teammates, at the pace the next level moves.</p></li>
+        <li data-reveal><span class="day-num">04</span><h4>The Culture Talk</h4><p>Attitude, effort, growth and respect. The four values the Cal Poly program runs on.</p></li>
+        <li data-reveal><span class="day-num">05</span><h4>Time With the Room</h4><p>Questions, photos, and a session with your coaching staff if you want one.</p></li>
+      </ol>
+    </div>
+
+    <div class="host" data-reveal>
+      <p class="eyebrow">For Host Coaches</p>
+      <h3>How Hosts Fill the Room</h3>
+      <p>Most programs do not pay for a day like this out of the budget. They build an event around it, and the event pays for the day.</p>
+      <ul class="host-list">
+        <li><strong>Open the doors</strong>Invite the programs around you. Four or five teams in one room turns a clinic into the best day of the off season for everybody in it.</li>
+        <li><strong>Charge at the door</strong>Hosts set their own per wrestler entry. The day covers itself, and what is left over funds your program.</li>
+        <li><strong>Split a date</strong>Two or three programs can co host and share one day, one travel trip, one room full of wrestlers.</li>
+      </ul>
+      <a class="btn btn-primary" href="#book">Book a Camp or Clinic</a>
     </div>
 
     <!-- SAMPLE TESTIMONIALS: placeholder quotes written to show what a strong testimonial looks like,
@@ -780,9 +831,9 @@ form .btn[disabled]{opacity:.75;cursor:wait}
       <ol class="steps">
         <li><span class="step-num">01</span><h4>Tell us about your group</h4><p>Ages, levels, numbers and what you are building toward.</p></li>
         <li><span class="step-num">02</span><h4>We build the session</h4><p>Technique, culture, leadership or all three, shaped around your goals.</p></li>
-        <li><span class="step-num">03</span><h4>Lock in the date</h4><p>Expect a reply within 48 hours with availability and options.</p></li>
+        <li><span class="step-num">03</span><h4>Lock in the date</h4><p>A reply within 48 hours with availability and options. Summer dates are booked by spring, and Jon takes 3 to 4 a summer.</p></li>
       </ol>
-      <a class="btn btn-primary" href="#book">Start a Request <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn-primary" href="#book">Book a Camp or Clinic <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -802,7 +853,7 @@ form .btn[disabled]{opacity:.75;cursor:wait}
       <h3 class="list-title" data-reveal>Coaching Career</h3>
       <div class="resume-list" data-reveal>
         <div class="resume-row"><span class="yr">Cal Poly</span><span class="what"><strong>Head Coach, 2016–Present</strong>Two-time Pac-12 Coach of the Year and a national Top 25 program six straight seasons</span></div>
-        <div class="resume-row"><span class="yr">Grand Canyon</span><span class="what"><strong>Head Coach</strong>Guided the move from Division II to Division I and signed a nationally ranked class with three Top 100 recruits in two seasons</span></div>
+        <div class="resume-row"><span class="yr">Grand Canyon</span><span class="what"><strong>Head Coach, Two Seasons</strong>Guided the move from Division II to Division I and signed a nationally ranked class with three Top 100 recruits</span></div>
         <div class="resume-row"><span class="yr">Chattanooga</span><span class="what"><strong>Assistant Coach, Two Seasons</strong>A No. 19 national ranking and a sweep of the Southern Conference regular-season and tournament titles</span></div>
         <div class="resume-row"><span class="yr">Old Dominion</span><span class="what"><strong>Assistant Coach, Six Seasons</strong>Top 25 four times, with four All-Americans and an NCAA finalist</span></div>
       </div>
@@ -822,7 +873,7 @@ form .btn[disabled]{opacity:.75;cursor:wait}
     <div class="book-side">
       <p class="eyebrow" data-reveal>Get on the Calendar</p>
       <h2 id="book-title" data-lines><span class="line"><span>Bring Jon to</span></span><span class="line"><span style="--i:1">Your Room</span></span></h2>
-      <p data-reveal>Dates fill around the college season. Tell us what you are building and we will follow up within 48 hours with availability and options.</p>
+      <p data-reveal>Dates fill around the college season, and there are only 3 to 4 summer clinics on the calendar each year. Summer dates are booked by spring. Tell us what you are building and we will follow up within 48 hours with availability and options.</p>
       <ul class="points" data-reveal>
         <li>Youth clubs, high school programs and RTCs</li>
         <li>Single-day clinics through multi-day camps</li>
@@ -839,6 +890,7 @@ form .btn[disabled]{opacity:.75;cursor:wait}
          Field names here must match FIELDS in that Worker's src/index.js. -->
     <form class="inquiry" data-reveal action="https://forms.jonsioredas.com/inquiry" method="POST">
       <p class="form-title">Send an Inquiry</p>
+      <input type="hidden" name="source" value="homepage">
       <div class="hp" aria-hidden="true"><label for="gotcha">Leave this empty</label><input id="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="f-row">
         <div class="f-group">
@@ -880,6 +932,7 @@ form .btn[disabled]{opacity:.75;cursor:wait}
         <span class="form-sent-mark" aria-hidden="true"></span>
         <p class="form-title">Inquiry Sent</p>
         <p>Thanks for reaching out. Jon will follow up within 48 hours with availability and options.</p>
+        <p class="form-sent-extra">Need to run it by your athletic director or your board? Send them this page and the <a href="downloads/Jon-Sioredas-Bio.pdf" download>one page bio</a>.</p>
       </div>
     </form>
   </div>
@@ -1052,6 +1105,22 @@ form .btn[disabled]{opacity:.75;cursor:wait}
     });
   }
 
+  // Both forms post to the jonsioredas-forms Worker. A local preview has no Worker to talk to,
+  // so on localhost the page skips the network and shows the same success state.
+  var isPreview = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  var postForm = function (form) {
+    if (isPreview) return new Promise(function (resolve) { setTimeout(resolve, 400); });
+    return fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          if (res.ok && data.ok) return;
+          var err = new Error(data.message || '');
+          err.offerEmail = res.status !== 400; // a 400 means a field needs fixing; anything else is our problem
+          throw err;
+        });
+      });
+  };
+
   // Booking inquiry: send it in the background and swap in a thank-you note.
   // Without JavaScript the form still posts normally and the Worker answers with a simple result page.
   var inquiry = document.querySelector('form.inquiry');
@@ -1079,15 +1148,7 @@ form .btn[disabled]{opacity:.75;cursor:wait}
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
       statusEl.hidden = true;
-      fetch(inquiry.action, { method: 'POST', body: new FormData(inquiry), headers: { Accept: 'application/json' } })
-        .then(function (res) {
-          return res.json().catch(function () { return {}; }).then(function (data) {
-            if (res.ok && data.ok) return;
-            var err = new Error(data.message || '');
-            err.offerEmail = res.status !== 400; // a 400 means a field needs fixing; anything else is our problem
-            throw err;
-          });
-        })
+      postForm(inquiry)
         .then(function () {
           inquiry.reset();
           inquiry.classList.add('is-sent');
