@@ -80,6 +80,8 @@ html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);-webkit-text-size-ad
   .js [data-reveal],.js .reveal-load,.js .hero h1 .line > *{opacity:1!important;transform:none!important}
   .js .timeline::before{transform:none!important}
   .js .philo-photo img{transform:scale(1.12)!important}
+  .js [data-lines] .line > span{transform:none!important}
+  .js [data-wipe]{clip-path:none!important}
 }
 body{font-family:var(--font-body);background:var(--cream-100);color:var(--ink-900);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;display:block}
@@ -138,7 +140,10 @@ section{padding:clamp(72px,9vw,112px) 0;position:relative}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;overflow:hidden;background:var(--green-900);color:#fff;padding:clamp(96px,11vw,140px) 0 clamp(88px,10vw,124px)}
-.hero-img{position:absolute;top:-40px;left:0;right:0;bottom:0;background:url('images/web/hero-1680.jpg') 40% 22%/cover no-repeat}
+.hero-img{position:absolute;top:-40px;left:0;right:0;bottom:0;overflow:hidden}
+.hero-photo{position:absolute;inset:0;background:url('images/web/hero-1680.jpg') 40% 22%/cover no-repeat;transform-origin:42% 30%;animation:heroDrift 28s ease-in-out 2.6s infinite alternate,heroSettle 2.6s var(--ease)}
+@keyframes heroSettle{from{transform:scale(1.14)}to{transform:scale(1.02)}}
+@keyframes heroDrift{from{transform:scale(1.02)}to{transform:scale(1.1)}}
 .hero-img::after{content:'';position:absolute;inset:0;
   background:linear-gradient(0deg,rgba(15,51,37,.94) 0%,rgba(15,51,37,.55) 22%,rgba(15,51,37,0) 48%),
              linear-gradient(100deg,rgba(15,51,37,.96) 0%,rgba(15,51,37,.84) 38%,rgba(29,92,68,.28) 75%,rgba(29,92,68,.45) 100%)}
@@ -155,7 +160,7 @@ section{padding:clamp(72px,9vw,112px) 0;position:relative}
 
 /* ---------- Stat band ---------- */
 .scoreboard{position:relative;z-index:2;background:var(--green-800);color:var(--cream-200)}
-.score-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding-top:44px;padding-bottom:66px;text-align:center}
+.score-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding-top:44px;padding-bottom:44px;text-align:center}
 .score-num{display:block;margin-bottom:10px;font-family:var(--font-head);font-weight:400;font-size:clamp(2.6rem,5vw,3.4rem);line-height:1;color:var(--gold-400)}
 .score-label{display:block;font-size:1rem;line-height:1.4;color:var(--cream-200)}
 
@@ -219,7 +224,7 @@ section{padding:clamp(72px,9vw,112px) 0;position:relative}
 .philosophy{padding:0;background:var(--green-800);color:var(--cream-200)}
 .philo-grid{display:grid;grid-template-columns:1fr 1fr;min-height:720px}
 .philo-photo{position:relative;overflow:hidden;background:var(--green-900)}
-.philo-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform:scale(1.12);transform-origin:50% 0;filter:saturate(.92) contrast(1.06) brightness(1.02) sepia(.06)}
+.philo-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform:scale(1.12);transform-origin:50% 0}
 .philo-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,71,52,0) 62%,rgba(21,71,52,.94) 100%)}
 .philo-photo figcaption{position:absolute;left:18px;bottom:14px;z-index:1;font-size:.7rem;letter-spacing:.04em;color:rgba(251,250,244,.85);text-shadow:0 1px 3px rgba(0,0,0,.8)}
 .philo-copy{display:flex;flex-direction:column;justify-content:center;max-width:680px;padding:clamp(64px,8vw,104px) clamp(24px,6vw,80px)}
@@ -253,10 +258,7 @@ section{padding:clamp(72px,9vw,112px) 0;position:relative}
 .card{display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid rgba(21,71,52,.06);border-radius:var(--radius);box-shadow:var(--shadow-sm);text-decoration:none;color:var(--ink-900);transition:transform .18s,box-shadow .18s}
 .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
 .card-img{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--green-800)}
-.card-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.06) brightness(1.02) sepia(.06)}
-.card-img:not(.card-img-placeholder)::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(21,71,52,.18) 0%,rgba(189,139,19,.1) 100%);mix-blend-mode:multiply;pointer-events:none}
-.card-img-placeholder{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,var(--cream-200),var(--cream-200) 10px,#dcdacb 10px,#dcdacb 20px)}
-.card-img-placeholder span{font-size:.85rem;color:var(--ink-500)}
+.card-img img{width:100%;height:100%;object-fit:cover}
 .card-body{display:flex;flex-direction:column;gap:8px;flex:1;padding:24px 26px 28px}
 .card .eyebrow{margin-bottom:0;font-size:.95rem}
 .card h3{font-size:1.75rem;line-height:1.05}
@@ -287,7 +289,7 @@ section{padding:clamp(72px,9vw,112px) 0;position:relative}
 .about{background:var(--green-900);color:var(--cream-200)}
 .about-grid{display:grid;grid-template-columns:400px 1fr;gap:44px 80px;align-items:start}
 .about-photo{position:sticky;top:calc(var(--nav-h) + 40px);isolation:isolate}
-.about-photo img{width:100%;height:auto;border-radius:var(--radius);filter:saturate(.92) contrast(1.06) brightness(1.02) sepia(.06)}
+.about-photo img{width:100%;height:auto;border-radius:var(--radius)}
 .about-photo::after{content:'';position:absolute;top:16px;left:16px;right:-16px;bottom:-16px;border:2px solid var(--gold-400);border-radius:12px;z-index:-1}
 .about-copy > p{margin-bottom:18px;font-size:1.03rem}
 .about-copy > .about-lede{font-size:1.4rem;font-weight:500;line-height:1.35;color:#fff}
@@ -342,14 +344,20 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 @keyframes rise{to{transform:none}}
 .js .reveal-load{opacity:0;transform:translateY(18px);animation:fadeUp 1s var(--ease) forwards;animation-delay:calc(var(--d) * 85ms + 200ms)}
 @keyframes fadeUp{to{opacity:1;transform:none}}
-.ticker-wrap{position:relative;z-index:3;overflow:hidden;overflow:clip;margin:-40px 0 -52px;padding:22px 0 34px;pointer-events:none}
-.ticker{position:relative;overflow:hidden;padding:15px 0;background:var(--gold-400);color:var(--green-900);transform:rotate(-1.2deg) scale(1.03);box-shadow:0 22px 50px -22px rgba(0,0,0,.4)}
-.ticker__track{display:flex;align-items:center;width:max-content;animation:marquee 55s linear infinite}
-.ticker span{flex:none;margin-right:26px;white-space:nowrap;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.06em;font-size:1.4rem;line-height:1}
-.ticker i{flex:none;width:7px;height:7px;margin-right:26px;border-radius:50%;background:var(--green-900);opacity:.55}
-@keyframes marquee{to{transform:translateX(-50%)}}
 .mat-mark{animation:spin 140s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+[data-lines] .line{display:block}
+.js [data-lines] .line{overflow:hidden;padding:.1em .06em .02em 0;margin:-.1em 0 -.02em}
+.js [data-lines] .line > span{display:inline-block;transform:translateY(115%);transition:transform 1.15s var(--ease);transition-delay:calc(var(--i,0) * 120ms)}
+.js [data-lines].is-in .line > span{transform:none}
+.js [data-wipe]{clip-path:inset(100% 0 0 0 round var(--wipe-r,0px));transition:clip-path 1.4s var(--ease)}
+.js [data-wipe].is-drawn{clip-path:inset(0 0 0 0 round var(--wipe-r,0px))}
+.about-photo img{--wipe-r:10px}
+.scroll-progress{position:absolute;left:0;right:0;bottom:-3px;height:3px;pointer-events:none}
+.scroll-progress span{display:block;height:100%;background:var(--gold-400);transform:scaleX(0);transform-origin:left}
+.btn-primary,.btn-green{position:relative;overflow:hidden}
+.btn-primary::after,.btn-green::after{content:'';position:absolute;top:-10%;bottom:-10%;left:-75%;width:50%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.5),rgba(255,255,255,0));transform:skewX(-20deg);transition:left .8s var(--ease);pointer-events:none}
+.btn-primary:hover::after,.btn-green:hover::after{left:130%}
 .js .timeline::before{transform:scaleX(0);transform-origin:left;transition:transform 1.8s var(--ease) .1s}
 .js .timeline.is-drawn::before{transform:none}
 .timeline li.is-now::after{content:'';position:absolute;top:-5px;left:-6px;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gold-400);animation:ping 2.4s var(--ease) infinite;pointer-events:none}
@@ -361,6 +369,8 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 .no-anim [data-reveal],.no-anim .reveal-load,.no-anim .hero h1 .line > *{opacity:1!important;transform:none!important}
 .no-anim .timeline::before{transform:none!important}
 .no-anim .philo-photo img{transform:scale(1.12)!important}
+.no-anim [data-lines] .line > span{transform:none!important}
+.no-anim [data-wipe]{clip-path:none!important}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1100px){
@@ -380,9 +390,9 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   .nav-menu li:last-child{border-bottom:0;padding-top:18px}
   .nav-menu a:not(.btn){padding:14px 0;border-bottom:0}
   .nav-menu .btn{width:100%}
-  .hero-img{background-image:url('images/web/hero-1100.jpg');background-position:45% 18%}
+  .hero-photo{background-image:url('images/web/hero-1100.jpg');background-position:45% 18%}
   .hero-img::after{background:linear-gradient(180deg,rgba(15,51,37,.5) 0%,rgba(15,51,37,.78) 45%,rgba(15,51,37,.95) 100%)}
-  .score-inner{grid-template-columns:1fr 1fr;row-gap:34px;padding-bottom:80px}
+  .score-inner{grid-template-columns:1fr 1fr;row-gap:34px}
   .split-head,.record-head,.book-grid,.about-grid{grid-template-columns:1fr}
   .path-grid{grid-template-columns:1fr;max-width:600px}
   .season{grid-template-columns:1fr}
@@ -411,8 +421,6 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   .timeline li.is-now::after{top:4px;left:-36px}
   .js .timeline::before{transform:scaleY(0);transform-origin:top}
   .js .timeline.is-drawn::before{transform:none}
-  .ticker span{font-size:1.15rem;margin-right:20px}
-  .ticker i{margin-right:20px}
   .t-year{font-size:2.1rem}
   .season-head{padding:32px 24px}
   .season-stats{grid-template-columns:1fr}
@@ -434,8 +442,9 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 @media print{
   .site-header,.skip,.hero-img,.hero::after,.hero-ctas,.paths,.mat-mark,.philo-photo,.camp-cta,.card-img,.process,.book form,.book-note,.btn{display:none!important}
   body{background:#fff;color:#000;font-size:10.5pt}
-  .ticker-wrap{display:none!important}
   .js [data-reveal],.js .reveal-load,.js .hero h1 .line > *{opacity:1!important;transform:none!important;animation:none!important}
+  .js [data-lines] .line > span{transform:none!important}
+  .js [data-wipe]{clip-path:none!important}
   section,.hero{padding:18pt 0!important}
   .hero,.scoreboard,.record,.philosophy,.about,.glance,.offers,.book,.site-footer{background:#fff!important}
   .hero *,.scoreboard *,.record *,.philosophy *,.about *,.site-footer *,h2,h3{color:#000!important}
@@ -464,10 +473,11 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
       <li><a class="btn btn-primary" href="#book">Book Jon</a></li>
     </ul>
   </nav>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 </header>
 
 <div class="hero" id="top">
-  <div class="hero-img" role="img" aria-label="Jon Sioredas coaching mat side in front of a packed home crowd"></div>
+  <div class="hero-img" role="img" aria-label="Jon Sioredas coaching mat side in front of a packed home crowd"><div class="hero-photo"></div></div>
   <div class="wrap">
     <div class="hero-inner">
       <p class="eyebrow reveal-load" style="--d:0"><span class="pulse-dot" aria-hidden="true"></span>Head Wrestling Coach · Cal Poly</p>
@@ -491,21 +501,17 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   <ul class="wrap score-inner">
     <li data-reveal><span class="score-num">2×</span><span class="score-label">Pac-12 Coach of the Year</span></li>
     <li data-reveal><span class="score-num">6</span><span class="score-label">Straight seasons in the national Top 25</span></li>
-    <li data-reveal><span class="score-num">70</span><span class="score-label">NCAA qualifiers coached</span></li>
-    <li data-reveal><span class="score-num">24</span><span class="score-label">Academic All-Americans coached</span></li>
+    <li data-reveal><span class="score-num" data-count>70</span><span class="score-label">NCAA qualifiers coached</span></li>
+    <li data-reveal><span class="score-num" data-count>24</span><span class="score-label">Academic All-Americans coached</span></li>
   </ul>
 </div>
-
-<div class="ticker-wrap" aria-hidden="true"><div class="ticker">
-  <div class="ticker__track"><span>Two-Time Pac-12 Coach of the Year</span><i></i><span>President, National Wrestling Coaches Association</span><i></i><span>NCAA Division I Men's Wrestling Rules Subcommittee</span><i></i><span>Six Straight Seasons in the National Top 25</span><i></i><span>Record Fundraising in 2025-26</span><i></i><span>NCAA All-American</span><i></i><span>UTC Athletics Hall of Fame</span><i></i><span>Two-Time Pac-12 Coach of the Year</span><i></i><span>President, National Wrestling Coaches Association</span><i></i><span>NCAA Division I Men's Wrestling Rules Subcommittee</span><i></i><span>Six Straight Seasons in the National Top 25</span><i></i><span>Record Fundraising in 2025-26</span><i></i><span>NCAA All-American</span><i></i><span>UTC Athletics Hall of Fame</span><i></i></div>
-</div></div>
 
 <section class="paths" aria-labelledby="paths-title">
   <div class="wrap">
     <div class="split-head">
       <div data-reveal>
         <p class="eyebrow">Start Here</p>
-        <h2 id="paths-title">One Standard.<br>Every Room.</h2>
+        <h2 id="paths-title" data-lines><span class="line"><span>One Standard.</span></span><span class="line"><span style="--i:1">Every Room.</span></span></h2>
       </div>
       <p data-reveal>Whether you run a club, lead an organization or are trusting a coach with your wrestler, the standard is the same: set it high, then live it every day.</p>
     </div>
@@ -541,7 +547,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
     <div class="record-head">
       <div data-reveal>
         <p class="eyebrow">The Record</p>
-        <h2 id="record-title">Last Place<br>to <em>Top 25</em></h2>
+        <h2 id="record-title" data-lines><span class="line"><span>Last Place</span></span><span class="line"><span style="--i:1">to <em>Top 25</em></span></span></h2>
       </div>
       <div class="record-intro" data-reveal>
         <p>When Jon arrived in San Luis Obispo before the 2016-17 season, Cal Poly had just finished last in the Pac-12 and had no NCAA qualifiers. On his first day he wrote down a single goal: a Top 25 program within five years.</p>
@@ -579,7 +585,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   <div class="wrap glance-grid">
     <div class="glance-side" data-reveal>
       <p class="eyebrow">At a Glance</p>
-      <h2 id="glance-title">Built the<br>Right Way</h2>
+      <h2 id="glance-title" data-lines><span class="line"><span>Built the</span></span><span class="line"><span style="--i:1">Right Way</span></span></h2>
       <p>Winning is one line on the résumé. The program Jon built also sets records in the classroom, raises more private support than at any point in its 78-year history and gives Cal Poly a seat at the head of the table as college wrestling navigates a period of unprecedented change.</p>
       <a class="btn btn-primary" href="downloads/Jon-Sioredas-Bio.pdf" download>Download the Full Bio <span class="arrow" aria-hidden="true">→</span></a>
     </div>
@@ -643,13 +649,13 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 
 <section class="philosophy on-dark" id="philosophy" aria-labelledby="philosophy-title">
   <div class="philo-grid">
-    <figure class="philo-photo" data-draw>
+    <figure class="philo-photo" data-draw data-wipe>
       <img src="images/web/ncaa-embrace.jpg" alt="Jon Sioredas embracing a Cal Poly wrestler at the NCAA Championships" width="1100" height="734" loading="lazy" decoding="async">
       <figcaption>Photo: Tony Rotundo / WrestlersAreWarriors.com</figcaption>
     </figure>
     <div class="philo-copy">
       <p class="eyebrow" data-reveal>The Philosophy</p>
-      <h2 id="philosophy-title" data-reveal>Purpose<br>Over Outcome</h2>
+      <h2 id="philosophy-title" data-lines><span class="line"><span>Purpose</span></span><span class="line"><span style="--i:1">Over Outcome</span></span></h2>
       <blockquote class="quote" data-reveal>
         <p>“Our purpose is to create remarkable men for life after wrestling. Winning wrestling matches is the secondary benefit.”</p>
         <cite>Jon Sioredas</cite>
@@ -667,7 +673,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   <div class="wrap philo-after">
     <div class="panel" data-reveal>
       <p class="eyebrow">In the Classroom</p>
-      <span class="big-num">3.5+</span>
+      <span class="big-num" data-count>3.5+</span>
       <p>GPA or better for half the roster in winter 2026.</p>
       <p class="fine">Plus the highest team GPA in program history in 2025-26 and a program-record six NWCA Scholar All-Americans.</p>
     </div>
@@ -694,14 +700,14 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow" data-reveal>Work With Jon</p>
-      <h2 id="work-title" data-reveal>Raise the Standard</h2>
+      <h2 id="work-title" data-lines><span class="line"><span>Raise the Standard</span></span></h2>
       <!-- TODO: revisit this headline + eyebrow copy, tighten up later -->
       <p data-reveal>Every engagement is built around one idea: raise the standard in the room and leave your athletes and coaches with tools they will actually use.</p>
     </div>
     <div class="offer-grid">
 
       <a class="card" data-reveal href="#book" id="camps">
-        <div class="card-img"><img src="images/web/camps-clinics.jpg" alt="Jon Sioredas pumping both fists, celebrating with his team" width="1200" height="675" loading="lazy" decoding="async" style="object-position:center 20%"></div>
+        <div class="card-img" data-wipe><img src="images/web/camps-clinics.jpg" alt="Jon Sioredas pumping both fists, celebrating with his team" width="1200" height="675" loading="lazy" decoding="async" style="object-position:center 20%"></div>
         <div class="card-body">
           <p class="eyebrow">High School &amp; Club Programs</p>
           <h3>Camps &amp; Clinics on the Road</h3>
@@ -711,7 +717,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
       </a>
 
       <a class="card" data-reveal href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">
-        <div class="card-img card-img-placeholder"><span>Photo coming soon</span></div>
+        <div class="card-img" data-wipe><img src="images/web/camp-huddle.jpg" alt="Campers gathered around a technique demonstration on the mat at Mustang Wrestling Camp" width="1200" height="675" loading="lazy" decoding="async"></div>
         <div class="card-body">
           <p class="eyebrow">On Campus at Cal Poly</p>
           <h3>Mustang Wrestling Camp</h3>
@@ -721,7 +727,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
       </a>
 
       <a class="card" data-reveal href="#book">
-        <div class="card-img"><img src="images/web/speaking-podium.jpg" alt="Jon Sioredas speaking at the podium for the Cal Poly Wrestling 75th Anniversary celebration" width="1100" height="1649" loading="lazy" decoding="async" style="object-position:center 42%;transform:scale(1.3) translateX(-6%)"></div>
+        <div class="card-img" data-wipe><img src="images/web/speaking-podium.jpg" alt="Jon Sioredas speaking at the podium for the Cal Poly Wrestling 75th Anniversary celebration" width="1000" height="1499" loading="lazy" decoding="async" style="object-position:center 42%;transform:scale(1.3) translateX(-6%)"></div>
         <div class="card-body">
           <p class="eyebrow">Teams, Events, Organizations</p>
           <h3>Speaking Engagements</h3>
@@ -771,11 +777,11 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
 <section class="about on-dark" id="about" aria-labelledby="about-title">
   <div class="wrap about-grid">
     <div class="about-photo" data-reveal>
-      <img src="images/web/headshot.jpg" alt="Jon Sioredas, head wrestling coach at Cal Poly" width="760" height="1139" loading="lazy" decoding="async">
+      <img data-wipe src="images/web/headshot.jpg" alt="Jon Sioredas, head wrestling coach at Cal Poly" width="760" height="1139" loading="lazy" decoding="async">
     </div>
     <div class="about-copy">
       <p class="eyebrow" data-reveal>About Jon</p>
-      <h2 id="about-title" data-reveal>A Competitor<br>First</h2>
+      <h2 id="about-title" data-lines><span class="line"><span>A Competitor</span></span><span class="line"><span style="--i:1">First</span></span></h2>
       <p class="about-lede" data-reveal>Before he built programs, Jon won at every level.</p>
       <p data-reveal>At Great Bridge High School in Chesapeake, Virginia, he was a state champion, national champion and All-American who went 181-13, the fourth-most wins in Virginia high school history. At Chattanooga he placed fifth at 165 pounds at the 2005 NCAA Championships to become an All-American, won two Southern Conference titles and was named SoCon Wrestler of the Year and tournament MVP. He was later inducted into the UTC Athletics Hall of Fame.</p>
       <p data-reveal>In 20 seasons of college coaching, 12 of them as a head coach, he has been part of 11 nationally ranked teams and has coached 10 NCAA All-Americans, 70 NCAA qualifiers and 24 Academic All-Americans, while recruiting seven Top 25 classes.</p>
@@ -802,7 +808,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   <div class="wrap book-grid">
     <div class="book-side">
       <p class="eyebrow" data-reveal>Get on the Calendar</p>
-      <h2 id="book-title" data-reveal>Bring Jon to<br>Your Room</h2>
+      <h2 id="book-title" data-lines><span class="line"><span>Bring Jon to</span></span><span class="line"><span style="--i:1">Your Room</span></span></h2>
       <p data-reveal>Dates fill around the college season. Tell us what you are building and we will follow up within 48 hours with availability and options.</p>
       <ul class="points" data-reveal>
         <li>Youth clubs, high school programs and RTCs</li>
@@ -904,6 +910,7 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   if (new URLSearchParams(location.search).has('noanim')) root.classList.add('no-anim'); // for screenshots / QA
   var header = document.querySelector('.site-header');
   var heroImg = document.querySelector('.hero-img');
+  var progress = document.querySelector('.scroll-progress span');
 
   // Header shadow once you scroll, plus the subtle hero parallax
   // (image moves at a quarter of scroll speed, capped at 40px, like the camp site).
@@ -911,6 +918,10 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   var onScroll = function () {
     var y = window.scrollY;
     header.classList.toggle('is-scrolled', y > 8);
+    if (progress) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+    }
     if (heroImg && !reducedMotion) {
       heroImg.style.transform = 'translate3d(0,' + Math.min(y * 0.25, 40) + 'px,0)';
     }
@@ -924,7 +935,24 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
   // Scroll reveals, staggered among siblings (same pattern as the Central Coast RTC site).
   // Once an element has animated in, its data-reveal attribute is removed so hover effects work normally.
   var revealables = [].slice.call(document.querySelectorAll('[data-reveal]'));
-  var drawables = [].slice.call(document.querySelectorAll('[data-draw]'));
+  var drawables = [].slice.call(document.querySelectorAll('[data-draw]:not([data-wipe]), [data-lines]'));
+  // Photos that unveil start fully clipped (zero visible area), which in-view detection ignores,
+  // so each one is triggered by its container coming into view instead.
+  var wipes = [].slice.call(document.querySelectorAll('[data-wipe]'));
+  var counters = [].slice.call(document.querySelectorAll('[data-count]'));
+  var countUp = function (el) {
+    var finalText = el.textContent;
+    var m = finalText.match(/^(\d+(?:\.\d+)?)(.*)$/);
+    if (!m) return;
+    var target = parseFloat(m[1]), suffix = m[2], decimals = (m[1].split('.')[1] || '').length, start = null;
+    var step = function (t) {
+      if (start === null) start = t;
+      var p = Math.min((t - start) / 1600, 1);
+      el.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(decimals) + suffix;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = finalText;
+    };
+    requestAnimationFrame(step);
+  };
   revealables.forEach(function (el) {
     var siblings = [].filter.call(el.parentElement.children, function (c) { return c.hasAttribute('data-reveal'); });
     var index = siblings.indexOf(el);
@@ -941,7 +969,9 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
         if (!entry.isIntersecting) return;
         var el = entry.target;
         io.unobserve(el);
-        if (el.hasAttribute('data-draw')) { el.classList.add('is-drawn'); return; }
+        if (el.hasAttribute('data-count')) { countUp(el); return; }
+        if (el.hasAttribute('data-lines')) { el.classList.add('is-in'); return; }
+        if (el.hasAttribute('data-draw') || el.hasAttribute('data-wipe')) { el.classList.add('is-drawn'); return; }
         el.classList.add('is-in');
         var fallback = setTimeout(function () { settle(el); }, 1300 + (parseInt(el.style.getPropertyValue('--rd'), 10) || 0));
         el.addEventListener('transitionend', function onEnd(ev) {
@@ -952,10 +982,19 @@ form .btn{margin-top:6px;padding:16px 28px;font-size:1.2rem}
         });
       });
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
-    revealables.concat(drawables).forEach(function (el) { io.observe(el); });
+    revealables.concat(drawables, counters).forEach(function (el) { io.observe(el); });
+    var wipeIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        wipeIO.unobserve(entry.target);
+        wipes.forEach(function (w) { if (w.parentElement === entry.target) w.classList.add('is-drawn'); });
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+    wipes.forEach(function (w) { wipeIO.observe(w.parentElement); });
   } else {
     revealables.forEach(settle);
-    drawables.forEach(function (el) { el.classList.add('is-drawn'); });
+    drawables.forEach(function (el) { el.classList.add('is-drawn', 'is-in'); });
+    wipes.forEach(function (el) { el.classList.add('is-drawn'); });
   }
 
   // Mobile menu
