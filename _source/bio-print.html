@@ -4,38 +4,39 @@
 <meta charset="UTF-8">
 <title>Jon Sioredas | Biography</title>
 <!-- Source for downloads/Jon-Sioredas-Bio.pdf. Edit here, then re-export the PDF with headless Chrome (print to PDF, Letter, no headers/footers). -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/piz5gep.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
 @page{size:Letter;margin:.55in .6in .6in}
-:root{--ink:#0E2E22;--gold:#C6A14B;--gold-text:#7A5E1F;--text:#23221e;--muted:#55544c;--rule:#d9d2c0}
+:root{--ink:#154734;--gold:#bd8b13;--gold-400:#f2c75c;--gold-text:#7a5a0c;--text:#1e2020;--muted:#54585a;--rule:#e4e3d3;--head:"abolition","Arial Narrow",sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{font-family:'Source Sans 3','Segoe UI',sans-serif;font-size:9.15pt;line-height:1.42;color:var(--text)}
+body{font-family:'Inter','Segoe UI',sans-serif;font-size:8.55pt;line-height:1.45;color:var(--text)}
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:.3in;padding-bottom:.16in;border-bottom:3px solid var(--gold)}
-.eyebrow{font-weight:700;font-size:7.4pt;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text)}
-h1{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:42pt;line-height:.9;letter-spacing:.02em;color:var(--ink);margin:.06in 0 .07in}
+.eyebrow{font-family:var(--head);font-weight:400;font-size:11pt;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text)}
+h1{font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:46pt;line-height:.9;letter-spacing:.02em;color:var(--ink);margin:.04in 0 .08in}
 h1 span{color:var(--gold)}
-.creds{display:flex;flex-wrap:wrap;gap:2pt 0;font-weight:600;font-size:9.4pt;color:var(--ink)}
+.creds{display:flex;flex-wrap:wrap;gap:2pt 0;font-weight:600;font-size:8.8pt;color:var(--ink)}
 .creds li{list-style:none;display:flex;align-items:center}
-.creds li+li::before{content:'';width:4.5pt;height:4.5pt;margin:0 8pt;background:var(--gold);transform:rotate(45deg)}
-.photo{flex:none;width:1.08in;height:1.35in;overflow:hidden;border:1px solid var(--rule);outline:2px solid var(--gold);outline-offset:3px}
+.creds li+li::before{content:'';width:4.5pt;height:4.5pt;margin:0 8pt;border-radius:50%;background:var(--gold)}
+.photo{flex:none;width:1.08in;height:1.35in;overflow:hidden;border-radius:8px;outline:2px solid var(--gold);outline-offset:3px}
 .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
 .body{columns:2;column-gap:.32in;margin-top:.18in}
-h2{break-after:avoid;display:flex;align-items:center;gap:6pt;margin:9pt 0 3pt;font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:14.5pt;letter-spacing:.04em;line-height:1;color:var(--ink)}
-h2::before{content:'';flex:none;width:5pt;height:5pt;background:var(--gold);transform:rotate(45deg)}
-p{margin-bottom:6pt;orphans:3;widows:3}
-.lead{font-size:10.1pt;line-height:1.38;color:var(--ink)}
+h2{break-after:avoid;display:flex;align-items:center;gap:6pt;margin:9pt 0 3pt;font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:15pt;letter-spacing:.03em;line-height:1;color:var(--ink)}
+h2::before{content:'';flex:none;width:6pt;height:6pt;border-radius:50%;background:var(--gold)}
+p{margin-bottom:5.5pt;orphans:3;widows:3}
+.lead{font-size:9.6pt;line-height:1.4;font-weight:500;color:var(--ink)}
 ul.bul{margin:0 0 6pt}
 ul.bul li{list-style:none;position:relative;padding-left:12pt;margin-bottom:3pt;break-inside:avoid}
-ul.bul li::before{content:'';position:absolute;left:0;top:6.2pt;width:7pt;height:1.5pt;background:var(--gold)}
-blockquote{margin:2pt 0 7pt;padding:1pt 0 1pt 9pt;border-left:2.5pt solid var(--gold);font-style:italic;color:var(--ink);break-inside:avoid}
+ul.bul li::before{content:'\2713';position:absolute;left:0;top:0;font-weight:700;color:#1d5c44}
+blockquote{margin:2pt 0 7pt;padding:1pt 0 1pt 9pt;border-left:2.5pt solid var(--gold);font-style:italic;font-weight:500;color:var(--ink);break-inside:avoid}
 .nw{white-space:nowrap}
-.glance{break-inside:avoid;margin-top:.1in;padding:.12in .18in .1in;background:#F4F2EC;border-top:3px solid var(--ink)}
-.glance-title{font-family:'Bebas Neue',Impact,sans-serif;font-size:17pt;letter-spacing:.05em;line-height:1;color:var(--ink);margin-bottom:6pt}
+.glance{break-inside:avoid;margin-top:.1in;padding:.12in .18in .1in;background:var(--rule);border-radius:8px}
+.glance-title{font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:18pt;letter-spacing:.04em;line-height:1;color:var(--ink);margin-bottom:6pt}
 .glance-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4pt .2in}
-.glance h3{margin:4pt 0 3pt;font-weight:700;font-size:7.4pt;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text)}
-.glance li{list-style:none;position:relative;padding-left:9pt;margin-bottom:2pt;font-size:8.1pt;line-height:1.32}
-.glance li::before{content:'';position:absolute;left:0;top:4.6pt;width:3.6pt;height:3.6pt;background:var(--gold);transform:rotate(45deg)}
+.glance h3{margin:5pt 0 3pt;font-family:var(--head);font-weight:400;font-size:11pt;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text)}
+.glance li{list-style:none;position:relative;padding-left:9pt;margin-bottom:2pt;font-size:7.7pt;line-height:1.32}
+.glance li::before{content:'';position:absolute;left:0;top:4pt;width:3.8pt;height:3.8pt;border-radius:50%;background:var(--gold)}
 </style>
 </head>
 <body>
