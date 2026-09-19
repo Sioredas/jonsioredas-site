@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LinkedIn banner</title>
+<!-- Source for linkedin-banner.jpg (1584x396). Screenshot at exactly 1584x396 with headless Chrome.
+     No copy: the profile establishes standing, jonsioredas.com does the selling.
+     LinkedIn punches the avatar in at x 56-360, y 212+ (measured on the live profile),
+     so the embrace is kept right of x=560. Photo is already graded by grade-all.sh; no filters on top.
+     Photo: Tony Rotundo / WrestlersAreWarriors.com, licensed for commercial use. -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1584px;height:396px;overflow:hidden;background:#0f3325}
+.card{position:relative;width:1584px;height:396px}
+.photo{position:absolute;inset:0;background:url('../images/web/ncaa-embrace.jpg') 50% 8.5%/cover no-repeat}
+/* Barely-there vignette so the avatar and the profile card below sit on a settled edge. */
+.photo::after{content:'';position:absolute;inset:0;background:
+  linear-gradient(0deg,rgba(15,51,37,.30) 0%,rgba(15,51,37,0) 26%),
+  linear-gradient(90deg,rgba(15,51,37,.26) 0%,rgba(15,51,37,0) 22%)}
+.bar{position:absolute;left:0;right:0;bottom:0;height:6px;background:#bd8b13}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="photo"></div>
+  <div class="bar"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+/* Jon Sioredas brand tokens — shared by all YouTube source files.
+   Matches jonsioredas.com: abolition display, Inter body, Cal Poly green + gold. */
+:root{
+  --green-deep:#0f3325;
+  --green:#154734;
+  --green-lift:#1d5c44;
+  --gold:#f2c75c;
+  --gold-deep:#bd8b13;
+  --cream:#fbfaf4;
+  --cream-dim:#e4e3d3;
+  --head:'abolition','Arial Narrow',sans-serif;
+  --body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--green-deep);font-family:var(--body);-webkit-font-smoothing:antialiased}

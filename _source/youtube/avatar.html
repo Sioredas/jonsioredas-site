@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<title>Channel avatar — headshot</title>
+<!-- Source for out/youtube-avatar.png (800x800). YouTube masks this to a circle
+     and renders it as small as 48px, so the face is cropped tight (head ~58% of
+     the width) and the ring is the only decoration. The headshot is already shot
+     on Cal Poly green, so the photo background IS the brand background. -->
+<link rel="stylesheet" href="_brand.css">
+<style>
+html,body{width:800px;height:800px;overflow:hidden;background:transparent}
+.a{position:relative;width:800px;height:800px;border-radius:50%;overflow:hidden;background:var(--green)}
+.p{position:absolute;inset:0;
+  background:url('../../images/jon-headshot.jpg') no-repeat;
+  background-size:960px 1439px;background-position:-85px -121px;
+  filter:saturate(1.02) contrast(1.04)}
+/* lift the face off the background and darken the rim so the circle reads
+   against both the light and the dark YouTube themes */
+.v{position:absolute;inset:0;background:
+  radial-gradient(circle at 50% 42%,rgba(15,51,37,0) 42%,rgba(15,51,37,.30) 78%,rgba(15,51,37,.62) 100%)}
+.ring{position:absolute;inset:0;border-radius:50%;border:18px solid var(--gold);
+  box-shadow:inset 0 0 0 5px rgba(15,51,37,.55)}
+</style></head>
+<body><div class="a"><div class="p"></div><div class="v"></div><div class="ring"></div></div></body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<title>Video watermark</title>
+<!-- Source for out/youtube-watermark.png (150x150, transparent).
+     YouTube shows this in the bottom-right of every video as a subscribe button,
+     at roughly 30-40px, over unpredictable footage — so it is a solid green
+     puck with a gold rim, never a transparent wordmark. -->
+<link rel="stylesheet" href="https://use.typekit.net/piz5gep.css">
+<link rel="stylesheet" href="_brand.css">
+<style>
+html,body{width:150px;height:150px;overflow:hidden;background:transparent}
+body{background:transparent}
+.w{position:relative;width:150px;height:150px;border-radius:50%;
+  background:var(--green-deep);border:6px solid var(--gold);
+  box-shadow:0 0 0 2px rgba(15,51,37,.9)}
+.js{position:absolute;left:0;right:0;top:50%;transform:translateY(-52%);
+  text-align:center;font-family:var(--head);font-size:92px;line-height:.8;
+  color:var(--cream);text-transform:uppercase}
+.js b{font-weight:400;color:var(--gold)}
+</style></head>
+<body><div class="w"><div class="js">J<b>S</b></div></div></body></html>

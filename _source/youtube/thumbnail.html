@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<title>Thumbnail template</title>
+<!--
+  Reusable 1280x720 thumbnail. Everything is driven by the query string, so one
+  file makes every thumbnail on the channel and they all match:
+
+    thumbnail.html?img=PATH&tag=SERIES&l1=LINE%20ONE&l2=LINE%20TWO&focus=50%25%2030%25
+
+    img    path to the still (relative to this file), or omit for plain green
+    tag    small gold chip, top left — use the series name
+    l1,l2  the headline, 1-2 lines, 2-4 words each. Short. It is read at 210px wide.
+    focus  background-position for the still, default "50% 38%"
+
+  ./make-thumb.sh writes the PNG. Keep titles SHORT: on a phone this whole image
+  is about the size of a business card.
+-->
+<link rel="stylesheet" href="https://use.typekit.net/piz5gep.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_brand.css">
+<style>
+html,body{width:1280px;height:720px;overflow:hidden}
+.t{position:relative;width:1280px;height:720px;background:var(--green-deep);color:var(--cream)}
+.still{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;
+  filter:saturate(.95) contrast(1.06)}
+.grad{position:absolute;inset:0;background:
+  linear-gradient(72deg,rgba(15,51,37,.97) 0%,rgba(15,51,37,.93) 34%,rgba(15,51,37,.55) 58%,rgba(15,51,37,.12) 82%,rgba(15,51,37,.06) 100%),
+  linear-gradient(180deg,rgba(15,51,37,.55) 0%,rgba(15,51,37,0) 26%,rgba(15,51,37,0) 58%,rgba(15,51,37,.80) 100%)}
+
+.tag{position:absolute;left:56px;top:52px;font-family:var(--body);font-weight:700;
+  font-size:23px;letter-spacing:.17em;text-transform:uppercase;color:var(--gold);
+  border:3px solid rgba(242,199,92,.7);border-radius:4px;padding:11px 20px 9px}
+
+h1{position:absolute;left:56px;bottom:96px;width:760px;margin:0;
+  font-family:var(--head);font-weight:400;text-transform:uppercase;
+  font-size:128px;line-height:.83;letter-spacing:.01em;color:#fff;
+  text-shadow:0 4px 34px rgba(15,51,37,.85)}
+h1 span{color:var(--gold);display:block}
+
+.mark{position:absolute;right:52px;bottom:92px;width:104px;height:104px;border-radius:50%;
+  background:var(--green-deep);border:5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 26px rgba(15,51,37,.6)}
+.mark b{font-family:var(--head);font-weight:400;font-size:62px;line-height:1;
+  color:var(--cream);transform:translateY(-2px)}
+.mark b i{font-style:normal;color:var(--gold)}
+
+.bar{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gold)}
+.url{position:absolute;left:58px;bottom:36px;font-family:var(--body);font-weight:600;
+  font-size:21px;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,250,244,.62)}
+</style></head>
+<body>
+<div class="t">
+  <div class="still" id="still"></div>
+  <div class="grad"></div>
+  <p class="tag" id="tag"></p>
+  <h1 id="h"></h1>
+  <div class="mark"><b>J<i>S</i></b></div>
+  <p class="url">jonsioredas.com</p>
+  <div class="bar"></div>
+</div>
+<script>
+const q = new URLSearchParams(location.search);
+const img = q.get('img');
+if (img) {
+  const s = document.getElementById('still');
+  s.style.backgroundImage = `url('${img}')`;
+  s.style.backgroundPosition = q.get('focus') || '50% 38%';
+}
+const tag = q.get('tag');
+if (tag) document.getElementById('tag').textContent = tag; else document.getElementById('tag').style.display='none';
+const l1 = q.get('l1') || '', l2 = q.get('l2') || '';
+document.getElementById('h').innerHTML = l1 + (l2 ? `<span>${l2}</span>` : '');
+</script>
+</body></html>
