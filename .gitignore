@@ -1,2 +1,5 @@
 .DS_Store
 .claude/
+
+# Generated thumbnails: rebuild with _source/youtube/build-thumbs.sh
+_source/youtube/out/thumbnails/
