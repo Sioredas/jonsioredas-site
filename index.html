@@ -120,6 +120,11 @@ html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);-webkit-text-size-ad
 body{font-family:var(--font-body);background:var(--cream-100);color:var(--ink-900);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit}
+/* Inline prose link: body copy has no other link affordance, so underline it.
+   Colour is derived from the text so it reads on light and dark sections alike. */
+.inline-link{text-decoration:underline;text-decoration-color:currentColor;text-decoration-thickness:1px;text-underline-offset:.16em}
+@supports (color:color-mix(in srgb,red 50%,transparent)){.inline-link{text-decoration-color:color-mix(in srgb,currentColor 45%,transparent)}}
+.inline-link:hover{text-decoration-color:currentColor}
 ul,ol{list-style:none}
 h1,h2,h3,h4{font-family:var(--font-head);font-weight:400;text-transform:uppercase;letter-spacing:.025em;line-height:1.08;color:var(--green-800)}
 .nw{white-space:nowrap}
@@ -621,7 +626,7 @@ form .btn[disabled]{opacity:.75;cursor:wait}
       </div>
       <div class="record-intro" data-reveal>
         <p>When Jon arrived in San Luis Obispo before the 2016-17 season, Cal Poly had just finished last in the NCAA and had no NCAA qualifiers. On his first day he wrote down a single goal: a Top 25 program within five years.</p>
-        <p>The Mustangs lost every dual in his second and third seasons. Instead of chasing quick fixes, he rebuilt the foundation: launching the Mustang Wrestling Foundation, overhauling fundraising and anchoring the program to a set of core values.</p>
+        <p>The Mustangs lost every dual in his second and third seasons. Instead of chasing quick fixes, he rebuilt the foundation: launching the <a class="inline-link" href="https://mustangwrestlingfoundation.org/" target="_blank" rel="noopener">Mustang Wrestling Foundation</a>, overhauling fundraising and anchoring the program to a set of core values.</p>
       </div>
     </div>
 
@@ -1003,6 +1008,8 @@ form .btn[disabled]{opacity:.75;cursor:wait}
         <ul>
           <li><a href="https://gopoly.com/sports/wrestling" target="_blank" rel="noopener">Cal Poly Wrestling</a></li>
           <li><a href="https://www.mustangwrestlingcamp.com" target="_blank" rel="noopener">Mustang Wrestling Camp</a></li>
+          <li><a href="https://mustangwrestlingfoundation.org/" target="_blank" rel="noopener">Mustang Wrestling Foundation</a></li>
+          <li><a href="https://centralcoastrtc.org/" target="_blank" rel="noopener">Central Coast RTC</a></li>
           <li><a href="downloads/Jon-Sioredas-Bio.pdf" download>Download Bio (PDF)</a></li>
         </ul>
       </div>
