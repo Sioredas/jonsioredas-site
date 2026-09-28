@@ -468,8 +468,11 @@ form .btn[disabled]{opacity:.75;cursor:wait}
 @keyframes fadeUp{to{opacity:1;transform:none}}
 /* Until the fonts arrive (html.fonts-pending, see the head script), Abolition text that can be on screen
    at load stays invisible, as it would while a browser waits on a font, and the hero's entrance holds
-   so the headline still rises in its own face. The hero photo is not held. */
-.fonts-pending .brand-text,.fonts-pending .btn,.fonts-pending .eyebrow,.fonts-pending .hero h1,.fonts-pending .hero-link,.fonts-pending .score-num{-webkit-text-fill-color:transparent}
+   so the headline still rises in its own face. The hero photo is not held. The h1 is hidden with opacity
+   because it moves when Abolition lands (the fallback eyebrow can wrap), and a text-fill-hidden element
+   still counts as a layout shift. */
+.fonts-pending .brand-text,.fonts-pending .btn,.fonts-pending .eyebrow,.fonts-pending .hero-link,.fonts-pending .score-num{-webkit-text-fill-color:transparent}
+.fonts-pending .hero h1{opacity:0}
 .fonts-pending .hero .reveal-load,.fonts-pending .hero h1 .line > *{animation-play-state:paused}
 .mat-mark{animation:spin 140s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
