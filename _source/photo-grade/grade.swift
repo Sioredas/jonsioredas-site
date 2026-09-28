@@ -1,5 +1,5 @@
 // House photo grade for jonsioredas-site.
-// usage: grade <in> <out> <width> <EV> <gainR> <gainG> <gainB> <contrast> <saturation> [grain] [jpegQuality]
+// usage: grade <in> <out> <width> <EV> <gainR> <gainG> <gainB> <contrast> <saturation> [grain] [jpegQuality] [crop x,y,w,h]
 import Foundation
 import CoreImage
 import AppKit
@@ -83,6 +83,14 @@ if grainAmp > 0 {
   let blend = CIFilter(name: "CISoftLightBlendMode")!
   blend.setValue(mapped.outputImage!, forKey: kCIInputImageKey); blend.setValue(img, forKey: kCIInputBackgroundImageKey)
   img = blend.outputImage!.cropped(to: img.extent)
+}
+
+// optional crop, in output pixels from the top left. It comes after the whole grade, so the pixels
+// match the uncropped file exactly (the vignette and grain are laid out on the full frame).
+if a.count > 12 {
+  let c = a[12].split(separator: ",").map { CGFloat(Double($0)!) }
+  let r = CGRect(x: c[0], y: img.extent.height - c[1] - c[3], width: c[2], height: c[3])
+  img = img.cropped(to: r).transformed(by: CGAffineTransform(translationX: -r.minX, y: -r.minY))
 }
 
 let ctx = CIContext()

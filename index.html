@@ -45,7 +45,8 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" as="image" href="images/web/hero-1680.jpg" media="(min-width: 901px)" fetchpriority="high">
-<link rel="preload" as="image" href="images/web/hero-1100.jpg" media="(max-width: 900px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/web/hero-1100.jpg" media="(min-width: 481px) and (max-width: 900px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/web/hero-phone.jpg" media="(max-width: 480px)" fetchpriority="high">
 <!-- Brand fonts match Mustang Wrestling Camp: Abolition (headlines) from the camp's licensed
      Adobe Fonts kit, Inter (body) from Google Fonts. Abolition ships weight 400 only and has
      no true lowercase, so it is used for display text only and always pinned to font-weight 400.
@@ -566,6 +567,11 @@ form .btn[disabled]{opacity:.75;cursor:wait}
   .f-row{grid-template-columns:1fr}
   .resume-row{grid-template-columns:1fr;gap:2px}
   .footer-grid{grid-template-columns:1fr}
+}
+/* A phone only shows the middle of the hero photo, so it gets hero-phone.jpg, a strip of the same frame
+   cut at this same 45% (see _source/photo-grade/grade-all.sh). The framing stays identical. */
+@media (max-width:480px){
+  .hero-photo{background-image:url('images/web/hero-phone.jpg')}
 }
 
 /* ---------- Print: a clean one-document résumé ---------- */
