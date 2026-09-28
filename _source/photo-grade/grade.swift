@@ -1,5 +1,5 @@
 // House photo grade for jonsioredas-site.
-// usage: grade <in> <out> <width> <EV> <gainR> <gainG> <gainB> <contrast> <saturation> [grain]
+// usage: grade <in> <out> <width> <EV> <gainR> <gainG> <gainB> <contrast> <saturation> [grain] [jpegQuality]
 import Foundation
 import CoreImage
 import AppKit
@@ -10,6 +10,7 @@ let targetW = CGFloat(Double(a[3])!)
 let ev = Double(a[4])!, gR = Double(a[5])!, gG = Double(a[6])!, gB = Double(a[7])!
 let kContrast = Double(a[8])!, sImg = Double(a[9])!
 let grainAmp = a.count > 10 ? Double(a[10])! : 0.025
+let jpegQuality = a.count > 11 ? Double(a[11])! : 0.74
 
 func clamp(_ x: Double) -> Double { min(max(x, 0), 1) }
 func toLin(_ c: Double) -> Double { c <= 0.04045 ? c / 12.92 : pow((c + 0.055) / 1.055, 2.4) }
@@ -85,5 +86,5 @@ if grainAmp > 0 {
 }
 
 let ctx = CIContext()
-try! ctx.writeJPEGRepresentation(of: img, to: outURL, colorSpace: srgb, options: [CIImageRepresentationOption(rawValue: kCGImageDestinationLossyCompressionQuality as String): 0.74])
+try! ctx.writeJPEGRepresentation(of: img, to: outURL, colorSpace: srgb, options: [CIImageRepresentationOption(rawValue: kCGImageDestinationLossyCompressionQuality as String): jpegQuality])
 print("wrote \(outURL.lastPathComponent) \(Int(img.extent.width))x\(Int(img.extent.height))")
