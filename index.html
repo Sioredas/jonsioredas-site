@@ -3,7 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add('js')</script>
+<script>
+// "js" turns on the motion system. The font stylesheets below don't block the first paint, so until the
+// fonts arrive, "fonts-pending" keeps Abolition text invisible instead of flashing Arial Narrow and holds
+// the hero's entrance (see Motion). It clears once Abolition and Inter are loaded, at once if a font
+// stylesheet fails, or after 3s, the same wait a browser gives a font on its own.
+(function (root, fonts) {
+  root.classList.add('js');
+  if (!fonts || !fonts.load) return;
+  root.classList.add('fonts-pending');
+  // load() lists the faces it matched, and a face only matches once its stylesheet is in.
+  var check = function () {
+    Promise.all(['1em abolition', '1em Inter', '600 1em Inter'].map(function (f) { return fonts.load(f); }))
+      .then(function (sets) { if (sets.every(function (s) { return s.length; })) ready(); }, ready);
+  };
+  var ready = function () {
+    root.classList.remove('fonts-pending');
+    fonts.removeEventListener('loadingdone', check);
+  };
+  fonts.addEventListener('loadingdone', check);
+  setTimeout(ready, 3000);
+})(document.documentElement, document.fonts);
+</script>
 <title>Jon Sioredas | Cal Poly Head Coach · Camps, Clinics, Speaking</title>
 <meta name="description" content="Bring Cal Poly head wrestling coach Jon Sioredas to your program for a wrestling clinic, camp or keynote. Two-time Pac-12 Coach of the Year, NWCA President.">
 <meta name="theme-color" content="#0f3325">
@@ -27,12 +48,18 @@
 <link rel="preload" as="image" href="images/web/hero-1100.jpg" media="(max-width: 900px)">
 <!-- Brand fonts match Mustang Wrestling Camp: Abolition (headlines) from the camp's licensed
      Adobe Fonts kit, Inter (body) from Google Fonts. Abolition ships weight 400 only and has
-     no true lowercase, so it is used for display text only and always pinned to font-weight 400. -->
+     no true lowercase, so it is used for display text only and always pinned to font-weight 400.
+     Neither stylesheet blocks the first paint: each is preloaded and switched on when it lands, so the
+     hero photo shows without waiting on them, and the head script covers the gap (html.fonts-pending).
+     The Adobe kit @imports p.typekit.net/p.css (its page view count) before its fonts can load,
+     hence that preconnect. -->
 <link rel="preconnect" href="https://use.typekit.net" crossorigin>
-<link rel="stylesheet" href="https://use.typekit.net/piz5gep.css">
+<link rel="preconnect" href="https://p.typekit.net">
+<link rel="preload" as="style" href="https://use.typekit.net/piz5gep.css" onload="this.onload=null;this.rel='stylesheet'" onerror="document.documentElement.classList.remove('fonts-pending')">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'" onerror="document.documentElement.classList.remove('fonts-pending')">
+<noscript><link rel="stylesheet" href="https://use.typekit.net/piz5gep.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -439,6 +466,11 @@ form .btn[disabled]{opacity:.75;cursor:wait}
 @keyframes rise{to{transform:none}}
 .js .reveal-load{opacity:0;transform:translateY(18px);animation:fadeUp 1s var(--ease) forwards;animation-delay:calc(var(--d) * 85ms + 200ms)}
 @keyframes fadeUp{to{opacity:1;transform:none}}
+/* Until the fonts arrive (html.fonts-pending, see the head script), Abolition text that can be on screen
+   at load stays invisible, as it would while a browser waits on a font, and the hero's entrance holds
+   so the headline still rises in its own face. The hero photo is not held. */
+.fonts-pending .brand-text,.fonts-pending .btn,.fonts-pending .eyebrow,.fonts-pending .hero h1,.fonts-pending .hero-link,.fonts-pending .score-num{-webkit-text-fill-color:transparent}
+.fonts-pending .hero .reveal-load,.fonts-pending .hero h1 .line > *{animation-play-state:paused}
 .mat-mark{animation:spin 140s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 [data-lines] .line{display:block}
