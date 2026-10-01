@@ -573,6 +573,13 @@ form .btn[disabled]{opacity:.75;cursor:wait}
 @media (max-width:480px){
   .hero-photo{background-image:url('images/web/hero-phone.jpg')}
 }
+/* 320px phones: buttons are nowrap and fit in Abolition, but if Abolition is late or blocked an iPhone
+   draws them in Helvetica, and "Download the Full Bio" / "Book a Camp or Clinic" grew wider than the
+   screen, dragging their sections out ~20px (body's overflow-x:clip hid the swipe but cut the content).
+   Letting them wrap here changes nothing once Abolition is in. */
+@media (max-width:359px){
+  .btn{white-space:normal;text-align:center}
+}
 
 /* ---------- Print: a clean one-document résumé ---------- */
 @media print{
